@@ -1,3 +1,13 @@
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 .header__navbar{
     background-color: white;
     overflow: hidden;
@@ -10,8 +20,42 @@
     padding-right:5rem;
 }
 
+.dish__navbar {
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    overflow: auto;
+    white-space: nowrap;
+    margin-top: 20px;
+}
+
+.navbar__menu {
+    list-style: none;
+    text-align: center;
+}
+
+.navbar__item {
+    display: inline;
+    padding: 0 20px;
+    height: 80px;
+} 
+
+.navbar__links {
+    color: #000;
+    align-items: center;
+    white-space: nowrap;
+    justify-content: center;
+    text-decoration: none;
+    padding: 0 1rem;
+    height: 100%
+}
+
 :root{
-    --A1Name:'香辣土豆粉';
+    --A1Name:香辣土豆粉;
     --A2Name: "排骨土豆粉";
     --A3Name: "三鲜土豆粉";
     --A4Name: "牛腩土豆粉";

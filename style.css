@@ -8,17 +8,19 @@ html {
     padding: 0;
 }
 
-.header__navbar {
+.header__navbar{
     background-color: white;
     overflow: hidden;
 }
+
 
 .header__navbar a {
     float: left;
     text-align: center;
     font-size: 15px;
     padding-right: 5rem;
-}
+ }
+
 
 .dish__navbar {
     height: 40px;
@@ -44,6 +46,7 @@ html {
     height: 80px;
 }
 
+
 .navbar__links {
     color: #000;
     align-items: center;
@@ -54,8 +57,10 @@ html {
     height: 100%
 }
 
-:root {
-    --A1Name: 香辣土豆粉;
+
+
+:root{
+    --A1Name:香辣土豆粉;
     --A2Name: "排骨土豆粉";
     --A3Name: "三鲜土豆粉";
     --A4Name: "牛腩土豆粉";
@@ -154,7 +159,7 @@ html {
 }
 
 
-.Eng {
+.Eng{
     --A1Name: "Spicy Potato Noodle in Soup";
     --A2Name: "Pork Ribs Potato Noodle in Soup";
     --A3Name: "Three Delicacies Potato Noodle in Soup";

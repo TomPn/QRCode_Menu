@@ -13,12 +13,14 @@ html {
     overflow: hidden;
 }
 
-.header__navbar a{
-    float:left;
+
+.header__navbar a {
+    float: left;
     text-align: center;
     font-size: 15px;
-    padding-right:5rem;
-}
+    padding-right: 5rem;
+ }
+
 
 .dish__navbar {
     height: 40px;
@@ -42,7 +44,8 @@ html {
     display: inline;
     padding: 0 20px;
     height: 80px;
-} 
+}
+
 
 .navbar__links {
     color: #000;
@@ -53,6 +56,8 @@ html {
     padding: 0 1rem;
     height: 100%
 }
+
+
 
 :root{
     --A1Name:香辣土豆粉;

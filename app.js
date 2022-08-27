@@ -1,5 +1,6 @@
-var language="CH"
 
+// Ch/ENG translation
+var language="CH"
 var dictionary = {
     ch:{
         "dishA1":'香辣土豆粉',
@@ -199,7 +200,7 @@ var dictionary = {
     }
 };
 
-
+/*
 document.getElementById('language').onclick = function() {
     if(language == 'CH'){
         language = 'ENG';
@@ -220,3 +221,24 @@ document.getElementById('language').onclick = function() {
         }
     }
 };
+*/
+
+
+
+
+// Clickable dishes
+var dishes = document.getElementsByClassName("dish");
+for(var i = 0; i < dishes.length; ++i){
+    var dish = dishes[i]
+    var dishName = dish.querySelectorAll(".dishName")[0];
+    var dishPrice = dish.querySelectorAll(".dishPrice")[0];
+    dish.addEventListener("click",dishClicked);
+}
+
+function dishClicked(event){
+    console.log(event.currentTarget);
+    const isTextSelected = window.getSelection().toString();
+    if (!isTextSelected) {
+    window.open('order.html');
+    }
+}

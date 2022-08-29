@@ -29,8 +29,8 @@
     </div>
 
     <div class="login">
-        <button id="DineIn" class="button">堂食</button>
-        <button id="TakeOut" class="button">带走</button>
+        <a href="login.php" id="Admin" class="admin">Admin</a>
+        <a href="guestPage.php" id="Guest" class="guest">Guest</a>
     </div>
     
 

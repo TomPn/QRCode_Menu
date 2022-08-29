@@ -1,9 +1,7 @@
-
-// Ch/ENG translation
-var language="CH"
-var dictionary = {
-    ch:{
-        "dishA1":'香辣土豆粉',
+// Ch/ENG translation 
+var language="CH";
+var dictionary = { 
+    ch:{ "dishA1":'香辣土豆粉',
         "dishA2":"排骨土豆粉",
         "dishA3":"三鲜土豆粉",
         "dishA4":"牛腩土豆粉",
@@ -20,7 +18,7 @@ var dictionary = {
         "dishB3":"红烧牛肉面",
         "dishB4":"海鲜面",
         "dishB5":"肥肠面",
-        "dishB6":"羊杂面",                  
+        "dishB6":"羊杂面",
         "dishB7":"小炖肉面",
         "dishB8":"炸酱面",
         "dishB9":"肉燥汤面",
@@ -98,10 +96,8 @@ var dictionary = {
         "dishJ1":"加煎蛋",
         "dishJ2":"加卤蛋",
         "dishK1":"清汤",
-        "dishK2":"改浓骨汤"
-    },
-    eng:{
-        "dishA1":"Spicy Potato Noodle in Soup",
+        "dishK2":"改浓骨汤" },
+        eng:{ "dishA1":"Spicy Potato Noodle in Soup",
         "dishA2":"Pork Ribs Potato Noodle in Soup",
         "dishA3":"Three Delicacies Potato Noodle in Soup",
         "dishA4":"Beef Brisket Potato Noodle in Soup",
@@ -196,49 +192,41 @@ var dictionary = {
         "dishJ1":"Fried Egg",
         "dishJ2":"Spiced Corned Egg",
         "dishK1":"Soup",
-        "dishK2":"Change to Bone Soup"
-    }
-};
-
-/*
-document.getElementById('language').onclick = function() {
-    if(language == 'CH'){
+        "dishK2":"Change to Bone Soup" }
+     };
+ /* 
+ document.getElementById('language').onclick = function() { 
+    if(language == 'CH'){ 
         language = 'ENG';
-    } else{
-        language = 'CH';
-    }
-
-    var toBeTranslate = Object.keys(dictionary)
-
-    if(language == 'CH'){
-        for(var i = 0; i < toBeTranslate.length; ++i){
-            document.getElementById(toBeTranslate[i]).innerText=dictionary.ch[toBeTranslate[i]];
-        }
-        
-    }else{
-        for(var i = 0; i < toBeTranslate.length; ++i){
-            document.getElementById(toBeTranslate[i]).innerText=dictionary.eng[toBeTranslate[i]];
-        }
-    }
+ } else{ language = 'CH';
+ } 
+ var toBeTranslate = Object.keys(dictionary);
+ if(language == 'CH'){ 
+    for(var i = 0; i < toBeTranslate.length; ++i){ 
+        document.getElementById(toBeTranslate[i]).innerText=dictionary.ch[toBeTranslate[i]];
+    } 
+}else{ 
+    for(var i = 0;i < toBeTranslate.length;++i){
+        document.getElementById(toBeTranslate[i]).innerText=dictionary.eng[toBeTranslate[i]];
+ } 
+} 
 };
-*/
+ */ 
 
-
-
-
-// Clickable dishes
-var dishes = document.getElementsByClassName("dish");
-for(var i = 0; i < dishes.length; ++i){
-    var dish = dishes[i]
-    var dishName = dish.querySelectorAll(".dishName")[0];
-    var dishPrice = dish.querySelectorAll(".dishPrice")[0];
-    dish.addEventListener("click",dishClicked);
-}
-
-function dishClicked(event){
-    console.log(event.currentTarget);
-    const isTextSelected = window.getSelection().toString();
-    if (!isTextSelected) {
-    window.open('order.html');
-    }
-}
+// Clickable dishes 
+ var dishes = document.getElementsByClassName("dish");
+ for(var i = 0;
+ i < dishes.length;
+ ++i){ var dish = dishes[i] //console.log(dishName);
+ dish.addEventListener("click",
+dishClicked);
+ } function dishClicked(event){ var dish = event.currentTarget;
+ var dishName = dish.querySelectorAll(".dishName")[0].innerHTML;
+ var dishPrice = dish.querySelectorAll(".dishPrice")[0].innerHTML;
+ sessionStorage.setItem('dishName',
+ JSON.stringify(dishName));
+ sessionStorage.setItem('dishPrice',
+ JSON.stringify(dishPrice));
+ const isTextSelected = window.getSelection().toString();
+ if (!isTextSelected) { window.open('order.html');
+ } }

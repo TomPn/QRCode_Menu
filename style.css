@@ -8,16 +8,13 @@ html {
     padding: 0;
 }
 
-.header__navbar{
+.header__navbar {
     background-color: white;
     display: flex;
     justify-content: space-between;
     font-size: 1rem;
     margin: 1rem;
     position: sticky;
-
-
-
 }
 
 @media screen and (max-width: 100%) {
@@ -28,14 +25,12 @@ html {
     }
 }
 
-
 .header__navbar a {
     float: left;
     text-align: center;
     font-size: 15px;
     padding-right: 5rem;
- }
-
+}
 
 .dish__navbar {
     height: 40px;
@@ -61,7 +56,6 @@ html {
     height: 80px;
 }
 
-
 .navbar__links {
     color: #000;
     align-items: center;
@@ -72,10 +66,8 @@ html {
     height: 100%
 }
 
-
-
-:root{
-    --A1Name:香辣土豆粉;
+:root {
+    --A1Name: 香辣土豆粉;
     --A2Name: "排骨土豆粉";
     --A3Name: "三鲜土豆粉";
     --A4Name: "牛腩土豆粉";
@@ -173,8 +165,7 @@ html {
     --K2Name: "改浓骨汤"
 }
 
-
-.Eng{
+.Eng {
     --A1Name: "Spicy Potato Noodle in Soup";
     --A2Name: "Pork Ribs Potato Noodle in Soup";
     --A3Name: "Three Delicacies Potato Noodle in Soup";
@@ -273,6 +264,7 @@ html {
     --K2Name: "Change to Bone Soup";
 }
 
+
 .header__navbar {
     height: 40px;
     line-height: 40px;
@@ -319,63 +311,60 @@ html {
 
 .Dish{
     margin: 1rem;
-
 }
 
-.dish{
+.dish {
     display: flex;
     max-width: 100%;
-    background-color:#f7f5e2 ;
+    background-color: #f7f5e2;
     padding: 1rem 0.5rem;
     box-sizing: border-box;
     border-radius: 1rem;
-    justify-content:baseline;
+    justify-content: baseline;
     flex-direction: row;
     margin-top: 1rem;
     font-size: 1rem;
 }
 
-.dishImg{
+.dishImg {
     width: 5rem;
     margin-left: 1rem;
     float: left;
-    
 }
 
-.dishText{
+.dishText {
     margin-left: 1rem;
     width: 100%;
     bottom: 0;
     display: flexbox;
 }
 
-.dishPrice{
-    float:right;
+.dishPrice {
+    float: right;
     font-size: 0.8rem;
     margin-top: 2.3rem;
 }
 
-.allToppings{
+.allToppings {
     margin: 1rem;
     max-width: 100%;
 }
 
-.toppingsTitle{
+.toppingsTitle {
     background-color: #dadad6;
     margin: 1rem;
 }
 
-.topping{
-    margin:1rem;
-    
+.topping {
+    margin: 1rem;
 }
 
-.toppingText{
-    width:fit-content;
+.toppingText {
+    width: fit-content;
     float: left;
-
 }
-.toppingCheckbox{
+
+.toppingCheckbox {
     display: block;
     position: relative;
     padding-left: 35px;
@@ -389,42 +378,84 @@ html {
     margin-left: 85%;
 }
 
-.toppingLine{
+.toppingLine {
     width: 100%;
     height: 1rem;
     border-bottom: 1px solid black;
     position: relative;
 }
 
-
-
-.addToCart{
-    background-color:rgb(236, 190, 125);
+.viewCartBtn {
+    background-color: #e5db81;
     width: 95%;
-    height:3.5rem;
+    height: 3.5rem;
+    line-height: 3.5rem;
+    box-sizing: border-box;
+    margin-left: 2.5%;
+    margin-top: .75rem;
+    border-radius: 2rem;
+    text-align: center;
+    position: absolute;
+}
+
+.viewCartIcon {
+    width: 95%;
+    padding-right: 3rem;
+    padding-top: 2.5rem;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    position: absolute;
+}
+
+.viewCartPrice {
+    width: 95%;
+    height: 3.5rem;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    padding-left: 5rem;
+    padding-top: 2rem;
+    position: absolute;
+}
+
+.addToCart {
+    background-color: #e5db81;
+    width: 95%;
+    height: 3.5rem;
     bottom: 0;
     box-sizing: border-box;
     margin-left: 2.5%;
-    margin-top:.75rem;
+    margin-top: .75rem;
     border-radius: 3rem;
     text-align: center;
+    position: relative;
 }
 
-.addToCartText{
+.addToCartText {
     padding-top: 1.25rem;
-    padding-left: 38%;
-    display: inline-block;
+    padding-left: 45%;
+    position: absolute;
 }
 
-.addToCartPrice{
-    display: inline-block;
-    padding-left: 28%;
+.addToCartPrice {
+    padding-top: 1.25rem;
+    padding-left: 85%;
+    position: absolute;
 }
 
-#orderPageFooter {
-     position: fixed;
-     bottom: 0;
-     width:100%;
-     background-color: #FFFFFF;
-     height: 5rem;
- }
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #FFFFFF;
+    height: 5rem;
+}
+
+.bottom {
+    width: 100%;
+    background-color: #FFFFFF;
+    height: 5rem;
+}
+

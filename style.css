@@ -264,7 +264,52 @@ html {
     --K2Name: "Change to Bone Soup";
 }
 
-.Dish {
+
+.header__navbar {
+    height: 40px;
+    line-height: 40px;
+    display: flex;
+    background: grey;
+}
+
+.language {
+    text-decoration: none;
+    color: white;
+}
+
+
+.introduction {
+    justify-content: center;
+    text-align: center;
+    margin-top: 30%;
+}
+
+.text {
+    padding-top: 100px;
+}
+
+.button {
+    display: block;
+    background-color: rgb(200, 197, 197); /* Green */
+    border: none;
+    border-radius: 10px;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+}
+
+.login {
+    margin-top: 10%;
+    position: relative;
+}   
+
+.Dish{
     margin: 1rem;
 }
 
@@ -399,6 +444,7 @@ html {
     position: absolute;
 }
 
+
 footer {
     position: fixed;
     bottom: 0;
@@ -412,3 +458,4 @@ footer {
     background-color: #FFFFFF;
     height: 5rem;
 }
+

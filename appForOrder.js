@@ -14,6 +14,22 @@ for(var i = 0; i < checkboxs.length; ++i){
 var notes = "";
 
 
+var addToCart = document.querySelector('footer');
+addToCart.addEventListener("click",footerClicked);
+
+
+function footerClicked(event){
+    const isTextSelected = window.getSelection().toString();
+    if (!isTextSelected) { 
+        window.open('A1.html');
+    }
+    
+    sessionStorage.setItem('toppings',JSON.stringify(notes));
+    sessionStorage.setItem('dishPrice',JSON.stringify(price));
+
+}
+
+
 function changed(){ 
     var toppingName = this.parentElement.parentElement.parentElement.getElementsByClassName("toppingName")[0].innerHTML;
     var toppingPrice = this.parentElement.parentElement.parentElement.getElementsByClassName("toppingPrice")[0].innerHTML;

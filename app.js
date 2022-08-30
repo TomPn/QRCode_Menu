@@ -215,18 +215,18 @@ var dictionary = {
 
 // Clickable dishes 
  var dishes = document.getElementsByClassName("dish");
- for(var i = 0;
- i < dishes.length;
- ++i){ var dish = dishes[i] //console.log(dishName);
- dish.addEventListener("click",
-dishClicked);
- } function dishClicked(event){ var dish = event.currentTarget;
- var dishName = dish.querySelectorAll(".dishName")[0].innerHTML;
- var dishPrice = dish.querySelectorAll(".dishPrice")[0].innerHTML;
- sessionStorage.setItem('dishName',
- JSON.stringify(dishName));
- sessionStorage.setItem('dishPrice',
- JSON.stringify(dishPrice));
- const isTextSelected = window.getSelection().toString();
- if (!isTextSelected) { window.open('order.html');
- } }
+ for(var i = 0; i < dishes.length; ++i){ 
+    var dish = dishes[i] //console.log(dishName);
+    dish.addEventListener("click",dishClicked);
+ } 
+ 
+ function dishClicked(event){ 
+    var dish = event.currentTarget;
+    var dishName = dish.querySelectorAll(".dishName")[0].innerHTML;
+    var dishPrice = dish.querySelectorAll(".dishPrice")[0].innerHTML;
+    sessionStorage.setItem('dishName',JSON.stringify(dishName));
+    sessionStorage.setItem('dishPrice',JSON.stringify(dishPrice));
+    const isTextSelected = window.getSelection().toString();
+    if (!isTextSelected) { window.open('order.html');
+    } 
+}

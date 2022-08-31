@@ -120,3 +120,19 @@ function loginUser($conn, $username, $pwd) {
         exit();
     }
 }
+
+function createEntry($conn, $dishID, $tableNum, $dishName, $quantity, $price, $comments) {
+    $sql = "INSERT INTO orderDetails (tableNumber,dishID,dishName,quantity,price,comments) VALUES (?, ?, ?, ?, ?, ?);";
+    $stmt = mysqli_stmt_init($conn); //create a prepared statement
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../order.php?error=stmtfailed");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "ssssss", $tableNum, $dishID, $dishName, $quantity, $price, $comments);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+    header("location: ../A1.php?error=none");
+    exit();
+}

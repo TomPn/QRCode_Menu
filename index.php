@@ -28,11 +28,10 @@
         <p class="Hours">营业时间：11:00 AM - 9:00 PM</p>
     </div>
 
-    <div class="login">
-        <a href="login.php" id="Admin" class="admin">Admin</a>
-        <a href="guestPage.php" id="Guest" class="guest">Guest</a>
+    <div class="identification">
+        <button onclick="location.href='login.php'" id="Admin" class="button">Admin</button>
+        <button onclick="location.href='guestPage.php'" id="Guest" class="button">Guest</button>
     </div>
     
-
 </body>
 </html>

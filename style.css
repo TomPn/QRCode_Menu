@@ -32,6 +32,7 @@ html {
     padding-right: 5rem;
 }
 
+
 .dish__navbar {
     height: 40px;
     display: flex;
@@ -284,6 +285,12 @@ html {
     margin-top: 30%;
 }
 
+.identification {
+    justify-content: center;
+    text-align: center;
+    margin-top: 5%;
+}
+
 .text {
     padding-top: 100px;
 }
@@ -343,6 +350,20 @@ html {
     float: right;
     font-size: 0.8rem;
     margin-top: 2.3rem;
+}
+
+.dishToOrder {
+    border: none;
+    margin-left: 1.2rem;
+    font-size: 1.5rem;
+}
+
+#dishToOrderID {
+    width: 2rem;
+}
+
+#dishToOrderName {
+    margin-left: -0.1rem;
 }
 
 .allToppings {
@@ -433,15 +454,19 @@ html {
 }
 
 .addToCartText {
-    padding-top: 1.25rem;
-    padding-left: 45%;
-    position: absolute;
+    display: inline-block;
+    padding: 0px;
+    text-align: center;
+    text-decoration: none;
+    line-height: 3.5rem;
+    width: 50%;
 }
 
-.addToCartPrice {
-    padding-top: 1.25rem;
-    padding-left: 85%;
+#addToCartPrice {
+    display: inline-block;
+    width: 20%;
     position: absolute;
+    line-height: 3.5rem;
 }
 
 
@@ -458,4 +483,3 @@ footer {
     background-color: #FFFFFF;
     height: 5rem;
 }
-

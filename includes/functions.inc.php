@@ -136,6 +136,12 @@ function createEntry($conn, $dishID, $tableNum, $dishName, $quantity, $price, $c
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
-    header("location: ../A1.php?error=none");
+    $doc = new DOMDocument();
+    $doc->validateOnParse = true;
+    @$doc->loadHTML(file_get_contents('../order.php'));
+    $rawTableNum = $doc->getElementById('tableNum');
+    $tableNum = $rawTableNum->textContent;
+    echo $tableNum;
+    header("location: ../" . $tableNum . ".php?error=none");
     exit();
 }

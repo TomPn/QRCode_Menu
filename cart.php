@@ -20,9 +20,31 @@
     <div id="cart">
         <?php
         include_once('includes/dbh.inc.php');
-        include_once('includes/cart.inc.php');
+        $doc = new DOMDocument();
+        $doc->validateOnParse = true;
+        @$doc->loadHTML(file_get_contents('cart.php'));
+        $rawTableNum = $doc->getElementById('tableNum');
+        $tableNum = $rawTableNum->textContent;
+        
+        // $tableNum = "A1";
+        $sql = "SELECT dishID, dishName, quantity, price, comments FROM orderDetails WHERE tableNumber = ?;";
+        $stmt = mysqli_stmt_init($conn);
+        if (!mysqli_stmt_prepare($stmt, $sql)) {
+            header("location: cart.php?error=stmtfailed");
+            exit();
+        }
+        
+        mysqli_stmt_bind_param($stmt, "s", $tableNum);
+        mysqli_stmt_execute($stmt);
+        
+        $results = mysqli_stmt_get_result($stmt);
+        
+        mysqli_stmt_close($stmt);
+        echo "<form action=\" includes/cart.inc.php \" method=\"POST\">";
         if (mysqli_num_rows($results) > 0) {
+            echo "<div class=\"cartWrapper\">";
             while ($row = mysqli_fetch_array($results)) {
+                echo "<div class=\"orderDish\">";
                 echo "<div class=\"orderDishName\">";
                 echo $row[1];
                 echo "</div>";
@@ -32,24 +54,26 @@
                 echo "<div class=\"orderDishPrice\">";
                 echo $row[3];
                 echo "</div>";
-                echo "<button class=\"orderDishMinus\"> - </button>";
+                echo "<input type=\"checkbox\" name=\"orderDishMinus\" class=\"orderDishMinus[]\" value=\"-\"></input>";
                 echo "<div class=\"orderDishQuantity\">";
                 echo $row[2];
                 echo "</div>";
-                echo "<button class=\"orderDishPlus\"> + </button>";
+                echo "<input type=\"checkbox\" name=\"orderDishPlus\" class=\"orderDishPlus[]\" value=\"+\"></input>";
                 echo "</div>";
             }
+            echo "</div>";
         }
+        echo "<button type=\"submit\" name = \"submit\" class=\"addToCart\">";
+        echo "<p class=\"addToCartText\">更新购物车</p>";
+        echo "<p id=\"addToCartPrice\">$20.99</p>";
+        echo "</button>";
+        echo "</form>";
         exit();
         ?>
     </div>
 </body>
 
 <footer>
-    <div class="order">
-
-    </div>
-    
 </footer>
 <script src="appForOrder.js"></script>
 </html>

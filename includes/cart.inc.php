@@ -18,3 +18,5 @@ mysqli_stmt_bind_param($stmt, "s", $tableNum);
 mysqli_stmt_execute($stmt);
 
 $results = mysqli_stmt_get_result($stmt);
+
+mysqli_stmt_close($stmt);

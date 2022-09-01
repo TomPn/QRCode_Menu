@@ -482,6 +482,10 @@ html {
     position: relative;
 }
 
+.inputFormat {
+    border: none;
+}
+
 .orderDishToppings {
     font-size: 10px;
 }

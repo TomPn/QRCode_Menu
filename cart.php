@@ -45,20 +45,15 @@
             echo "<div class=\"cartWrapper\">";
             while ($row = mysqli_fetch_array($results)) {
                 echo "<div class=\"orderDish\">";
-                echo "<div class=\"orderDishName\">";
-                echo $row[1];
-                echo "</div>";
-                echo "<div class=\"orderDishToppings\">";
-                echo $row[4];
-                echo "</div>";
-                echo "<div class=\"orderDishPrice\">";
-                echo $row[3];
-                echo "</div>";
-                echo "<input type=\"checkbox\" name=\"orderDishMinus\" class=\"orderDishMinus[]\" value=\"-\"></input>";
-                echo "<div class=\"orderDishQuantity\">";
-                echo $row[2];
-                echo "</div>";
-                echo "<input type=\"checkbox\" name=\"orderDishPlus\" class=\"orderDishPlus[]\" value=\"+\"></input>";
+                echo "<input type=\"text\" name=\"orderDishName\" value=$row[1] class=\"orderDishName inputFormat\" readonly>";
+                echo "<input type=\"text\" name=\"orderDishToppings\" value=$row[4] class=\"orderDishToppings inputFormat\" readonly>";
+                echo "<input type=\"text\" name=\"orderDishPrice\" value=$row[3] class=\"orderDishPrice inputFormat\" readonly>";
+                // echo "<div class=\"orderDishPrice\">";
+                // echo $row[3];
+                // echo "</div>";
+                echo "<button class=\"orderDishMinus[]\"> - </button>";
+                echo "<input type=\"text\" name=\"orderDishQuantity\ value=$row[2] class=\"orderDishQuantity inputFormat\" readonly>";
+                echo "<button class=\"orderDishPlus[]\"> + </button>";
                 echo "</div>";
             }
             echo "</div>";

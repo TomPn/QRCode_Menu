@@ -145,3 +145,7 @@ function createEntry($conn, $dishID, $tableNum, $dishName, $quantity, $price, $c
     header("location: ../" . $tableNum . ".php?error=none");
     exit();
 }
+
+function updateOrderDetails($conn, $dishName, $dishToppings, $dishPrice, $dishQuantity) {
+    
+}

@@ -20,3 +20,24 @@ mysqli_stmt_execute($stmt);
 $results = mysqli_stmt_get_result($stmt);
 
 mysqli_stmt_close($stmt);
+
+if (isset($_POST['submit'])) {
+
+    $dishName = $_POST['orderDishName'];
+    $dishToppings = $_POST['orderDishToppings'];
+    $dishPrice = $_POST['orderDishPrice'];
+    $dishQuantity = $_POST['orderDishQuantity'];
+
+    require_once 'dbh.inc.php';
+    require_once 'functions.inc.php';
+
+    if (emptyInputLogin($username, $pwd) !== false) {
+        header('location: ../login.php?error=emptyinput');
+        exit();
+    }
+
+    updateOrderDetails($conn, $dishName, $dishToppings, $dishPrice, $dishQuantity);
+} else {
+    header("location: ../cart.php");
+    exit();
+}

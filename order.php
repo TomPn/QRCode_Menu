@@ -16,8 +16,8 @@
     </div>
 </head>
 
-<form action="/includes/order.inc.php" method="post">
-    <body>
+<body>
+    <form action="/includes/order.inc.php" method="post">
         <input type="text" name="dishID" value="A1" id="dishToOrderID" class="dishToOrder" readonly>
         <input type="text" name="dishToOrder" value="香辣土豆粉" id="dishToOrderName" class="dishToOrder" readonly>
         <div class="allToppings">
@@ -114,15 +114,16 @@
                 </div>
             </div>
         </div>
-        <div class="bottom"></div>
-    </body>
-    <footer>
         <button type="submit" name = "submit" class="addToCart">
             <p class="addToCartText">加入购物车</p>
             <p id="addToCartPrice">$20.99</p>
         </button>
-    </footer>
+    </form>
     <script type="text/javascript" src="appForOrder.js"></script>
+</body>
+<footer>
+</footer>
+    
 </form>
 
 

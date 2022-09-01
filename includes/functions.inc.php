@@ -109,14 +109,17 @@ function loginUser($conn, $username, $pwd) {
     $checkPassword = password_verify($pwd, $pwdHashed);
     if ($checkPassword === false) {
         header('location: ../login.php?error=wronglogin');
-        
         exit();
     } 
     else if ($checkPassword === true) {
         session_start();
         $_SESSION['userid'] = $nameExist['usersId'];
         $_SESSION['username'] = $nameExist['usersName'];
-        header("location: ../adminPage.php");
+        if ($nameExist['usersIdentity'] === 'admin') {
+            header("location: ../adminPage.php");
+            exit();
+        }
+        header("location: ../guestPage.php");
         exit();
     }
 }

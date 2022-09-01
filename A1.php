@@ -170,8 +170,8 @@
 </body>
 <footer>
     <div class="viewCartBtn"></div> <i class="viewCartIcon fa fa-basket-shopping fa-xl"></i>
-    <p class="viewCartPrice">$20.99</p>
+    <p id="viewCartPrice">$20.99</p>
     </div>
 </footer>
-<script src="app.js"></script>
+<script type="text/javascript" src="app.js"></script>
 </html>

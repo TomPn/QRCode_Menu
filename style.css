@@ -32,6 +32,7 @@ html {
     padding-right: 5rem;
 }
 
+
 .dish__navbar {
     height: 40px;
     display: flex;
@@ -284,6 +285,12 @@ html {
     margin-top: 30%;
 }
 
+.identification {
+    justify-content: center;
+    text-align: center;
+    margin-top: 5%;
+}
+
 .text {
     padding-top: 100px;
 }
@@ -343,6 +350,20 @@ html {
     float: right;
     font-size: 0.8rem;
     margin-top: 2.3rem;
+}
+
+.dishToOrder {
+    border: none;
+    margin-left: 1.2rem;
+    font-size: 1.5rem;
+}
+
+#dishToOrderID {
+    width: 2rem;
+}
+
+#dishToOrderName {
+    margin-left: -0.1rem;
 }
 
 .allToppings {
@@ -426,36 +447,91 @@ html {
     bottom: 0;
     box-sizing: border-box;
     margin-left: 2.5%;
-    margin-top: .75rem;
+    bottom: 30px;
     border-radius: 3rem;
     text-align: center;
-    position: relative;
+    position: fixed;
 }
 
 .addToCartText {
-    padding-top: 1.25rem;
-    padding-left: 45%;
+    display: inline-block;
+    padding: 0px;
+    text-align: center;
+    text-decoration: none;
+    line-height: 3.5rem;
+    width: 50%;
+}
+
+#addToCartPrice {
+    display: inline-block;
+    width: 20%;
     position: absolute;
+    line-height: 3.5rem;
 }
 
-.addToCartPrice {
-    padding-top: 1.25rem;
-    padding-left: 85%;
+/* styling for the shopping cart */
+.orderDish {
+    height: 5rem;
+    background:rgb(200, 197, 197);
+    margin-bottom: 1rem;
+    width: 80%;
+    justify-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.inputFormat {
+    border: none;
+}
+
+.orderDishToppings {
+    font-size: 10px;
+}
+
+.orderDishQuantity {
     position: absolute;
+    right: 3.1rem;
+    top: 3rem;
 }
 
-
-footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: #FFFFFF;
-    height: 5rem;
+.orderDishPlus {
+    position: absolute;
+    right: 1.5rem;
+    top: 3rem;
+    height: 20px;
+    width: 20px;
 }
 
-.bottom {
-    width: 100%;
-    background-color: #FFFFFF;
-    height: 5rem;
+.orderDishMinus {
+    position: absolute;
+    right: 4rem;
+    top: 3rem;
+    height: 20px;
+    width: 20px;
 }
 
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+/* Track */
+::-webkit-scrollbar-track {
+background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #555; 
+}
+
+.cartWrapper {
+    margin-bottom: 10rem;
+}

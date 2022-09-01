@@ -2,8 +2,8 @@ var dishName = JSON.parse(sessionStorage.getItem("dishName"));
 var dishPrice = JSON.parse(sessionStorage.getItem("dishPrice"));
 var price = parseFloat(dishPrice.substring(1));
 
-document.getElementById("dishToOrder").innerText = dishName;
-document.getElementsByClassName('addToCartPrice')[0].innerHTML = "$".concat(price);
+document.getElementById("dishToOrderName").innerText = dishName;
+document.getElementById('addToCartPrice').innerHTML = "$".concat(price);
 
 var checkboxs = document.querySelectorAll('input[type=checkbox]');
 for(var i = 0; i < checkboxs.length; ++i){ 
@@ -21,12 +21,10 @@ addToCart.addEventListener("click",footerClicked);
 function footerClicked(event){
     const isTextSelected = window.getSelection().toString();
     if (!isTextSelected) { 
-        window.open('A1.html');
+        window.open('A1.php');
     }
-    
     sessionStorage.setItem('toppings',JSON.stringify(notes));
     sessionStorage.setItem('dishPrice',JSON.stringify(price));
-
 }
 
 
@@ -44,7 +42,8 @@ function changed(){
         price = price - toppingPrice;
     } 
     price = Number((price).toFixed(2));
-    document.getElementsByClassName('addToCartPrice')[0].innerHTML = "$".concat(price);
+    document.getElementById('addToCartPrice').innerHTML = "$".concat(price);
     console.log(notes);
     console.log(price);
+    document.cookie="currentPrice=$".concat(JSON.stringify(price));
 }

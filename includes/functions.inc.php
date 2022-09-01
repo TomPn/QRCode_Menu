@@ -109,14 +109,43 @@ function loginUser($conn, $username, $pwd) {
     $checkPassword = password_verify($pwd, $pwdHashed);
     if ($checkPassword === false) {
         header('location: ../login.php?error=wronglogin');
-        
         exit();
     } 
     else if ($checkPassword === true) {
         session_start();
         $_SESSION['userid'] = $nameExist['usersId'];
         $_SESSION['username'] = $nameExist['usersName'];
-        header("location: ../adminPage.php");
+        if ($nameExist['usersIdentity'] === 'admin') {
+            header("location: ../adminPage.php");
+            exit();
+        }
+        header("location: ../guestPage.php");
         exit();
     }
+}
+
+function createEntry($conn, $dishID, $tableNum, $dishName, $quantity, $price, $comments) {
+    $sql = "INSERT INTO orderDetails (tableNumber,dishID,dishName,quantity,price,comments) VALUES (?, ?, ?, ?, ?, ?);";
+    $stmt = mysqli_stmt_init($conn); //create a prepared statement
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../order.php?error=stmtfailed");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "ssssss", $tableNum, $dishID, $dishName, $quantity, $price, $comments);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+    $doc = new DOMDocument();
+    $doc->validateOnParse = true;
+    @$doc->loadHTML(file_get_contents('../order.php'));
+    $rawTableNum = $doc->getElementById('tableNum');
+    $tableNum = $rawTableNum->textContent;
+    echo $tableNum;
+    header("location: ../" . $tableNum . ".php?error=none");
+    exit();
+}
+
+function updateOrderDetails($conn, $dishName, $dishToppings, $dishPrice, $dishQuantity) {
+    
 }

@@ -14,20 +14,55 @@ for(var i = 0; i < checkboxs.length; ++i){
 var notes = "";
 
 
-var addToCart = document.querySelector('footer');
+var addToCart = document.querySelector('body');
 addToCart.addEventListener("click",footerClicked);
 
 
 function footerClicked(event){
+    
+    /*
     const isTextSelected = window.getSelection().toString();
     if (!isTextSelected) { 
-        window.open('A1.html');
+        window.open('A1.php');
+    }
+    */
+    
+    var dish = {
+        price:price,
+        notes:notes,
+        dishName:dishName
     }
     
-    sessionStorage.setItem('toppings',JSON.stringify(notes));
-    sessionStorage.setItem('dishPrice',JSON.stringify(price));
 
-}
+    var request = $.ajax({
+        url:"http://localhost:3000/order.php",
+        type:"POST",
+        data:dish,
+        dataType: "html"
+        // success:function(data){
+        //     console.log(data);
+        // }
+    });
+
+    // request.done(function(msg) {
+    //     alert ( "Response: " + msg );
+    // });
+
+
+
+/*
+    var ajax = new XMLHttpRequest();
+    ajax.open("GET", "test.php?name=t", true);
+    ajax.send();
+    ajax.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        console.log("hh");
+    }
+*/
+};
+
+
+
 
 
 function changed(){ 

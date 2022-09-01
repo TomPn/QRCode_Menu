@@ -227,6 +227,6 @@ var dictionary = {
     sessionStorage.setItem('dishName',JSON.stringify(dishName));
     sessionStorage.setItem('dishPrice',JSON.stringify(dishPrice));
     const isTextSelected = window.getSelection().toString();
-    if (!isTextSelected) { window.open('order.html');
+    if (!isTextSelected) { window.open('order.php');
     } 
 }

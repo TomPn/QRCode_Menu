@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="jquery-3.6.1.min (1).js"></script>
     <title>Order Page</title>
-    <div class="header__navbar"> 
-        <a class="menu" href="#">logo</a> 
-        <a class='language' href="#">Eng/中文</a> 
-        <a class="tableNum">A1</a> 
-        <a class='shoppingCartIcon' href="#"><i class="fa fa-shopping-cart"></i></a> 
+    <div class="header__navbar">
+        <a class="menu" href="#">logo</a>
+        <a class='language' href="#">Eng/中文</a>
+        <a class="tableNum">A1</a>
+        <a class='shoppingCartIcon' href="#"><i class="fa fa-shopping-cart"></i></a>
     </div>
 </head>
 
 <body>
+
     <h2 id="dishToOrder">A1 香辣土豆粉</h2>
     <div class="allToppings">
         <div class="addMeat">
@@ -105,15 +107,22 @@
             </div>
         </div>
     </div>
-    <div class="bottom"></div>
-    
-</body>
-<footer>
+
     <div class="addToCart">
         <p class="addToCartText">加入购物车</p>
         <p class="addToCartPrice">$20.99</p>
     </div>
+
+    <script src="appForOrder.js"></script>
+
+    <?php echo $_POST['price']; ?>
+
+    <div class="bottom"></div>
+    <div class="bottom"></div>
+</body>
+<footer>
+
 </footer>
-<script src="appForOrder.js"></script>
+
 
 </html>

@@ -230,6 +230,11 @@ var dictionary = {
     const isTextSelected = window.getSelection().toString();
     if (!isTextSelected) { window.open('order.php');
     } 
-    
 }
 
+var items = JSON.parse(localStorage.getItem('itemList'));
+var orderTotalPrice = 0;
+items.forEach(item => {
+    orderTotalPrice += item.totalPrice;
+})
+document.getElementById('addToCartPrice').innerHTML = '$'.concat(orderTotalPrice);

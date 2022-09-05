@@ -45,7 +45,7 @@
     
     <!-- Menu Section -->
     <div id="Menu">
-        <div class="Dish dishA" id="DishA">
+        <div class="dish dishA" id="DishA">
             <h3>土豆粉系列</h3>
             <div class="dish dishA1">
                 <div><img src="A1.jpg" class="dishImg"></div>
@@ -57,8 +57,57 @@
             <div class="dish dishA2">
                 <div><img src="A1.jpg" class="dishImg"></div>
                 <div class="dishText">
-                    <p class="dishName">A1 排骨土豆粉</p>
+                    <p class="dishName">A2 三鲜土豆粉</p>
                     <p class="dishPrice">$10.99</p>
+                </div>
+            </div>
+            <div class="dish dishA3">
+                <div><img src="A1.jpg" class="dishImg"></div>
+                <div class="dishText">
+                    <p class="dishName">A3 排骨土豆粉</p>
+                    <p class="dishPrice">$13.59</p>
+                </div>
+            </div>
+            <div class="dish dishA4">
+                <div><img src="A1.jpg" class="dishImg"></div>
+                <div class="dishText">
+                    <p class="dishName">A4 牛腩土豆粉</p>
+                    <p class="dishPrice">$14.59</p>
+                </div>
+            </div>
+            <div class="dish dishA5">
+                <div><img src="A1.jpg" class="dishImg"></div>
+                <div class="dishText">
+                    <p class="dishName">A5 鸭丝土豆粉</p>
+                    <p class="dishPrice">$14.59</p>
+                </div>
+            </div>
+            <div class="dish dishA6">
+                <div><img src="A1.jpg" class="dishImg"></div>
+                <div class="dishText">
+                    <p class="dishName">A6 肥肠土豆粉</p>
+                    <p class="dishPrice">$14.59</p>
+                </div>
+            </div>
+            <div class="dish dishA7">
+                <div><img src="A1.jpg" class="dishImg"></div>
+                <div class="dishText">
+                    <p class="dishName">A7 小炖肉土豆粉</p>
+                    <p class="dishPrice">$13.59</p>
+                </div>
+            </div>
+            <div class="dish dishA8">
+                <div><img src="A1.jpg" class="dishImg"></div>
+                <div class="dishText">
+                    <p class="dishName">A8 鸡丝土豆粉</p>
+                    <p class="dishPrice">$13.59</p>
+                </div>
+            </div>
+            <div class="dish dishA9">
+                <div><img src="A1.jpg" class="dishImg"></div>
+                <div class="dishText">
+                    <p class="dishName">A9 香辣鸡块土豆粉</p>
+                    <p class="dishPrice">$13.59</p>
                 </div>
             </div>
         </div>
@@ -164,14 +213,17 @@
                 </div>
             </div>
         </div>
+        <div class="bottom"></div>
     </div>
-    </div>
+
+    <button onclick="location.href = 'cart.php';" name="submitOrder" id="submitOrder" class="addToCart">
+        <!-- <div class="viewCartBtn"></div> <i class="viewCartIcon fa fa-basket-shopping fa-xl"></i> -->
+        <p class="addToCartText">购物车</p>
+        <p id="addToCartPrice">$0</p>
+    </button>
     <div class="bottom"></div>
 </body>
 <footer>
-    <div class="viewCartBtn"></div> <i class="viewCartIcon fa fa-basket-shopping fa-xl"></i>
-    <p id="viewCartPrice">$20.99</p>
-    </div>
 </footer>
 <script type="text/javascript" src="app.js"></script>
 </html>

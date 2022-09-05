@@ -429,15 +429,8 @@ html {
     position: absolute;
 }
 
-.viewCartPrice {
-    width: 95%;
-    height: 3.5rem;
-    display: inline-block;
-    text-align: center;
-    vertical-align: middle;
-    padding-left: 5rem;
-    padding-top: 2rem;
-    position: absolute;
+.bottom {
+    margin-top: 5rem;
 }
 
 .addToCart {

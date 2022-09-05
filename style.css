@@ -482,34 +482,49 @@ html {
     position: relative;
 }
 
-.inputFormat {
+input[type=text] {
+    box-sizing: border-box;
     border: none;
+    background: none;
+    text-align: center;
+    width: 1rem;
+    right: 2.6rem;
+    top: 3.1rem;
+    position: absolute;
 }
 
 .orderDishToppings {
-    font-size: 10px;
+    
 }
 
 .orderDishQuantity {
     position: absolute;
+    display: inline-block;
     right: 3.1rem;
     top: 3rem;
 }
 
 .orderDishPlus {
     position: absolute;
+    display: inline-block;
     right: 1.5rem;
     top: 3rem;
     height: 20px;
     width: 20px;
+    border-radius: 100%;
+    line-height: 15px;
 }
 
 .orderDishMinus {
     position: absolute;
+    display: inline-block;
     right: 4rem;
     top: 3rem;
     height: 20px;
     width: 20px;
+    border-radius: 100%;
+    line-height: 15px;
+    text-align: center;
 }
 
 /* width */

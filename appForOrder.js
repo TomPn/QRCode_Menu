@@ -3,7 +3,7 @@ var dishPrice = JSON.parse(sessionStorage.getItem("dishPrice"));
 var price = parseFloat(dishPrice.substring(1));
 
 document.getElementById("dishToOrderName").innerText = dishName;
-document.getElementById('addToCartPrice').innerHTML = "$".concat(price);
+document.getElementById('addToCartPrice').innerHTML = "$".concat(price); 
 
 var checkboxs = document.querySelectorAll('input[type=checkbox]');
 for(var i = 0; i < checkboxs.length; ++i){ 
@@ -13,19 +13,33 @@ for(var i = 0; i < checkboxs.length; ++i){
 
 var notes = "";
 
+var addToCart = document.querySelector('.addToCart');
+addToCart.addEventListener("click",addToCartClicked);
 
-var addToCart = document.querySelector('footer');
-addToCart.addEventListener("click",footerClicked);
 
-
-function footerClicked(event){
+function addToCartClicked(){
     const isTextSelected = window.getSelection().toString();
-    if (!isTextSelected) { 
-        window.open('A1.php');
+    
+    if (localStorage.getItem('itemList') == null) {
+        const items =[];
+        localStorage.setItem('itemList',JSON.stringify(items));
     }
-    sessionStorage.setItem('toppings',JSON.stringify(notes));
-    sessionStorage.setItem('dishPrice',JSON.stringify(price));
+    const item = {"name": dishName, "price": price, "quantity": 1, "notes": notes, "totalPrice": price};
+    // item[0] = {dishName};
+    // item[1] = price;
+    // item[2] = 1;
+    // item[3] = notes;
+    // item[4] = item[1] * item[2];
+    
+    var items = JSON.parse(localStorage.getItem('itemList'));
+    items.push(item);
+    localStorage.setItem('itemList',JSON.stringify(items));
+    console.log(items);
+    if (!isTextSelected) { 
+        window.location.href='A1.php';
+    }
 }
+
 
 
 function changed(){ 

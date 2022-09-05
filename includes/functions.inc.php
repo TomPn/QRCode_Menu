@@ -124,28 +124,59 @@ function loginUser($conn, $username, $pwd) {
     }
 }
 
-function createEntry($conn, $dishID, $tableNum, $dishName, $quantity, $price, $comments) {
-    $sql = "INSERT INTO orderDetails (tableNumber,dishID,dishName,quantity,price,comments) VALUES (?, ?, ?, ?, ?, ?);";
-    $stmt = mysqli_stmt_init($conn); //create a prepared statement
+function getOrderID($conn, $tableNum) {
+    $sql = "SELECT MAX(orderID) FROM cartItems WHERE tableID = '$tableNum';";
+    $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../order.php?error=stmtfailed");
+        header("location: ../cart.php?error=stmtfailed");
         exit();
     }
-
-    mysqli_stmt_bind_param($stmt, "ssssss", $tableNum, $dishID, $dishName, $quantity, $price, $comments);
     mysqli_stmt_execute($stmt);
+    
+    $resultData = mysqli_stmt_get_result($stmt);
+    
+    $orderID = 0;
+    $row = mysqli_fetch_assoc($resultData);
+    if ($row["MAX(orderID)"]) {
+        $orderID = $row["MAX(orderID)"] + 1;
+    } else {
+        $orderID = 1;
+    }
+    
     mysqli_stmt_close($stmt);
+    return $orderID;
+}
 
+function createOrderEntry($conn, $names) {
     $doc = new DOMDocument();
     $doc->validateOnParse = true;
     @$doc->loadHTML(file_get_contents('../order.php'));
     $rawTableNum = $doc->getElementById('tableNum');
     $tableNum = $rawTableNum->textContent;
-    echo $tableNum;
-    header("location: ../" . $tableNum . ".php?error=none");
-    exit();
-}
-
-function updateOrderDetails($conn, $dishName, $dishToppings, $dishPrice, $dishQuantity) {
+    $orderID = getOrderID($conn, $tableNum);
+    $orderDate = date("Y/m/d");
+    $orderPrice = 0;
+    $orderStatus = 0;
     
+    // calculate the entire order's price
+    forEach ($names as $name) {
+        $orderPrice += $name['totalPrice'];
+    }
+
+    // insert data into the database
+    forEach ($names as $name) {
+        $dishName = $name['name'];
+        $dishPrice = $name['price'];
+        $dishQuantity = $name['quantity'];
+        $dishNotes = $name['notes'];
+        $dishTotalPrice = $name['totalPrice'];
+        $sql = "INSERT INTO cartItems (tableID, orderID, orderDate, orderPrice, orderStatus, dishName, notes, dishPrice, dishQuant, dishTotalPrice) VALUES ('$tableNum', '$orderID', '$orderDate', '$orderPrice', '$orderStatus', '$dishName', '$dishNotes', '$dishPrice', '$dishQuantity', '$dishTotalPrice');";
+        $stmt = mysqli_stmt_init($conn);
+        if (!mysqli_stmt_prepare($stmt, $sql)) {
+            header("location: ../cart.php?error=stmtfailed");
+            exit();
+        }
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+    }
 }

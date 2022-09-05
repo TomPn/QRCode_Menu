@@ -2,6 +2,8 @@ function minusQuantity(tableNum, name, quantity, toppings) {
 
 };
 
+sessionStorage.setItem(addToCart,0);
+
 $('#cart').on('click', '.orderDishMinus', function(event) {
     var tableNum = document.getElementById('tableNum');
     var quantity = document.querySelectorAll('.orderDishQuantity')[0];
@@ -17,4 +19,5 @@ $('#cart').on('click', '.orderDishPlus', function(event) {
     var name = document.querySelectorAll('.orderDishName')[0];
     var toppings = document.querySelectorAll('.orderDishToppings')[0];
     plusQuantity(tableNum, name, quantity, toppings);
+    sessionStorage.addToCart = 1;
 })

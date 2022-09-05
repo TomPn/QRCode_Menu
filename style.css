@@ -535,3 +535,123 @@ background: #555;
 .cartWrapper {
     margin-bottom: 10rem;
 }
+
+
+#adminH1,#adminDetailH1{
+    margin: 5%;
+    text-align: center;
+}
+
+#admin{
+    margin:5%;
+}
+
+
+.activeItem {
+    box-sizing: border-box;
+    margin-top: 5%;
+    display:inline-flexbox;
+    background-color: #daeb9e;
+    box-sizing: border-box;
+    border-radius: 1.1rem;
+    padding: 3%;
+
+}
+
+.adminText{
+    line-height:200%;
+    padding: 2%;
+    display:inline-block;
+
+
+}
+
+.adminStatus{
+    box-sizing: border-box;
+    border-radius: 1.1rem;
+    display: inline-block;
+    background-color: #daeb9e;
+    float:right;
+    width: 5.5rem;
+}
+
+#adminDetail{
+    margin: 5%;
+
+}
+
+.adminDetailItem{
+    box-sizing: border-box;
+    margin-top: 5%;
+    display: inline-flexbox;
+    background-color: #daeb9e;
+    box-sizing: border-box;
+    border-radius: 1.1rem;
+}
+
+.adminDetailItemLeft{
+    line-height: 200%;
+    padding: 5%;
+    display: inline-block;
+
+}
+
+.adminDetailItemRight{
+    line-height: 200%;
+    padding: 5%;
+    display: inline-block;
+    float:right;
+
+}
+
+.adminOrderBtn{
+    margin-top:100%;
+    padding:5%;
+    background-color: #daeb9e;
+    box-sizing: border-box;
+    border-radius: 1.1rem;
+}
+
+.adminOrderBtnPrice{
+    padding: 2%;
+    margin-left: 8%;
+    display: inline-block;
+    font-size:larger;
+    font-weight: bold;
+    color:rgb(26, 26, 26);
+
+}
+
+.adminOrderBtnSubmitOrder{
+    box-sizing: border-box;
+    border-radius: 1.1rem;
+    padding: 2%;
+    margin-right: 8%;
+    display: inline-block;
+    float:right;
+    font-size: large;
+    background-color: rgb(255, 254, 196);
+
+}
+
+.updatePaidStatus{
+    z-index: 1000;
+    box-sizing: border-box;
+    border-radius: .8rem;
+    display: inline-block;
+    background-color: rgb(255, 254, 196);
+    margin-top: 8%;
+    width: 100%;
+    padding: 8%;
+    text-align: center;
+    
+}
+
+.orderStatus{
+    box-sizing: border-box;
+    border-radius: .8rem;
+    display: inline-block;
+    width: 100%;
+    padding: 8%;
+    text-align: center;
+}

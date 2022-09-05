@@ -9,10 +9,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Order Page</title>
     <div class="header__navbar"> 
-        <a class="menu" href="#">logo</a> 
+        <a class="menu" href="A1.php">logo</a> 
         <a class='language' href="#">Eng/中文</a> 
         <a id="tableNum">A1</a> 
-        <a class='shoppingCartIcon' href="#"><i class="fa fa-shopping-cart"></i></a> 
+        <a class='shoppingCartIcon' href="cart.php"><i class="fa fa-shopping-cart"></i></a> 
     </div>
 </head>
 

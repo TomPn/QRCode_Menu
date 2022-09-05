@@ -12,7 +12,7 @@
         <a class="menu" href="#">logo</a>
         <a class='language' href="#">Eng/中文</a>
         <a class="tableNum">A1</a>
-        <a class='shoppingCartIcon' href="#"><i class="fa fa-shopping-cart"></i></a>
+        <a class='shoppingCartIcon' href="cart.php" target=”_blank”><i class="fa fa-shopping-cart"></i></a>
     </div>
 </head>
 

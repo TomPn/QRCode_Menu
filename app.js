@@ -1,4 +1,5 @@
 // Ch/ENG translation 
+
 var language="CH";
 var dictionary = { 
     ch:{ "dishA1":'香辣土豆粉',

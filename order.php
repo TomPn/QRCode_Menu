@@ -17,108 +17,105 @@
 </head>
 
 <body>
-    <form action="/includes/order.inc.php" method="post">
-        <input type="text" name="dishID" value="A1" id="dishToOrderID" class="dishToOrder" readonly>
-        <input type="text" name="dishToOrder" value="香辣土豆粉" id="dishToOrderName" class="dishToOrder" readonly>
-        <div class="allToppings">
-            <div class="addMeat">
-                <h3 class="toppingsTitle">加肉</h3>
-                <div class="topping">
-                    <div class="toppingText">
-                        <p class="toppingName">牛肉</p>
-                        <p class="toppingPrice">$5.00</p>
-                    </div>
-                    <div class="toppingCheckbox"> 
-                        <label> <input type="checkbox" name="toppings[]" value="+牛肉"> <span class="checkmark"></span> </label>
-                    </div>
-                    <div class="toppingLine"></div>
+    <div class="dishToOrder" id="dishToOrderName"> </div>
+    <div class="allToppings">
+        <div class="addMeat">
+            <h3 class="toppingsTitle">加肉</h3>
+            <div class="topping">
+                <div class="toppingText">
+                    <p class="toppingName">牛肉</p>
+                    <p class="toppingPrice">$5.00</p>
                 </div>
-                <div class="topping">
-                    <div class="toppingText">
-                        <p class="toppingName">羊肉</p>
-                        <p class="toppingPrice">$5.00</p>
-                    </div>
-                    <div class="toppingCheckbox"> 
-                        <label> <input type="checkbox" name="toppings[]" value="+羊肉"> <span class="checkmark"></span> </label>
-                    </div>
-                    <div class="toppingLine"></div>
+                <div class="toppingCheckbox"> 
+                    <label> <input type="checkbox" name="toppings[]" value="+牛肉"> <span class="checkmark"></span> </label>
                 </div>
+                <div class="toppingLine"></div>
             </div>
-            <div class="addVege">
-                <h3 class="toppingsTitle">加菜</h3>
-                <div class="topping">
-                    <div class="toppingText">
-                        <p class="toppingName">青菜</p>
-                        <p class="toppingPrice">$5.00</p>
-                    </div>
-                    <div class="toppingCheckbox"> 
-                        <label> <input type="checkbox" name="toppings[]" value="+青菜"> <span class="checkmark"></span> </label>
-                    </div>
-                    <div class="toppingLine"></div>
+            <div class="topping">
+                <div class="toppingText">
+                    <p class="toppingName">羊肉</p>
+                    <p class="toppingPrice">$5.00</p>
                 </div>
-                <div class="topping">
-                    <div class="toppingText">
-                        <p class="toppingName">海带</p>
-                        <p class="toppingPrice">$5.00</p>
-                    </div>
-                    <div class="toppingCheckbox"> 
-                        <label> <input type="checkbox" name="toppings[]" value="+海带"> <span class="checkmark"></span> </label>
-                    </div>
-                    <div class="toppingLine"></div>
+                <div class="toppingCheckbox"> 
+                    <label> <input type="checkbox" name="toppings[]" value="+羊肉"> <span class="checkmark"></span> </label>
                 </div>
-            </div>
-            <div class="addCarb">
-                <h3 class="toppingsTitle">加面</h3>
-                <div class="topping">
-                    <div class="toppingText">
-                        <p class="toppingName">面</p>
-                        <p class="toppingPrice">$5.00</p>
-                    </div>
-                    <div class="toppingCheckbox"> 
-                        <label> <input type="checkbox" name="toppings[]" value="+加面"> <span class="checkmark"></span> </label>
-                    </div>
-                    <div class="toppingLine"></div>
-                </div>
-                <div class="topping">
-                    <div class="toppingText">
-                        <p class="toppingName">米线</p>
-                        <p class="toppingPrice">$5.00</p>
-                    </div>
-                    <div class="toppingCheckbox"> 
-                        <label> <input type="checkbox" name="toppings[]" value="+牛肉"> <span class="checkmark"></span> </label>
-                    </div>
-                    <div class="toppingLine"></div>
-                </div>
-            </div>
-            <div class="addEgg">
-                <h3 class="toppingsTitle">加蛋</h3>
-                <div class="topping">
-                    <div class="toppingText">
-                        <p class="toppingName">煎蛋</p>
-                        <p class="toppingPrice">$5.00</p>
-                    </div>
-                    <div class="toppingCheckbox"> 
-                        <label> <input type="checkbox" name="toppings[]" value="+加蛋"> <span class="checkmark"></span> </label>
-                    </div>
-                    <div class="toppingLine"></div>
-                </div>
-                <div class="topping">
-                    <div class="toppingText">
-                        <p class="toppingName">卤蛋</p>
-                        <p class="toppingPrice">$5.00</p>
-                    </div>
-                    <div class="toppingCheckbox"> 
-                        <label> <input type="checkbox" name="toppings[]" value="+卤蛋"> <span class="checkmark"></span> </label>
-                    </div>
-                    <div class="toppingLine"></div>
-                </div>
+                <div class="toppingLine"></div>
             </div>
         </div>
-        <button type="submit" name = "submit" class="addToCart">
-            <p class="addToCartText">加入购物车</p>
-            <p id="addToCartPrice">$20.99</p>
-        </button>
-    </form>
+        <div class="addVege">
+            <h3 class="toppingsTitle">加菜</h3>
+            <div class="topping">
+                <div class="toppingText">
+                    <p class="toppingName">青菜</p>
+                    <p class="toppingPrice">$5.00</p>
+                </div>
+                <div class="toppingCheckbox"> 
+                    <label> <input type="checkbox" name="toppings[]" value="+青菜"> <span class="checkmark"></span> </label>
+                </div>
+                <div class="toppingLine"></div>
+            </div>
+            <div class="topping">
+                <div class="toppingText">
+                    <p class="toppingName">海带</p>
+                    <p class="toppingPrice">$5.00</p>
+                </div>
+                <div class="toppingCheckbox"> 
+                    <label> <input type="checkbox" name="toppings[]" value="+海带"> <span class="checkmark"></span> </label>
+                </div>
+                <div class="toppingLine"></div>
+            </div>
+        </div>
+        <div class="addCarb">
+            <h3 class="toppingsTitle">加面</h3>
+            <div class="topping">
+                <div class="toppingText">
+                    <p class="toppingName">面</p>
+                    <p class="toppingPrice">$5.00</p>
+                </div>
+                <div class="toppingCheckbox"> 
+                    <label> <input type="checkbox" name="toppings[]" value="+加面"> <span class="checkmark"></span> </label>
+                </div>
+                <div class="toppingLine"></div>
+            </div>
+            <div class="topping">
+                <div class="toppingText">
+                    <p class="toppingName">米线</p>
+                    <p class="toppingPrice">$5.00</p>
+                </div>
+                <div class="toppingCheckbox"> 
+                    <label> <input type="checkbox" name="toppings[]" value="+牛肉"> <span class="checkmark"></span> </label>
+                </div>
+                <div class="toppingLine"></div>
+            </div>
+        </div>
+        <div class="addEgg">
+            <h3 class="toppingsTitle">加蛋</h3>
+            <div class="topping">
+                <div class="toppingText">
+                    <p class="toppingName">煎蛋</p>
+                    <p class="toppingPrice">$5.00</p>
+                </div>
+                <div class="toppingCheckbox"> 
+                    <label> <input type="checkbox" name="toppings[]" value="+加蛋"> <span class="checkmark"></span> </label>
+                </div>
+                <div class="toppingLine"></div>
+            </div>
+            <div class="topping">
+                <div class="toppingText">
+                    <p class="toppingName">卤蛋</p>
+                    <p class="toppingPrice">$5.00</p>
+                </div>
+                <div class="toppingCheckbox"> 
+                    <label> <input type="checkbox" name="toppings[]" value="+卤蛋"> <span class="checkmark"></span> </label>
+                </div>
+                <div class="toppingLine"></div>
+            </div>
+        </div>
+    </div>
+    <div class="addToCart">
+        <p class="addToCartText">加入购物车</p>
+        <p id="addToCartPrice">$20.99</p>
+    </div>
     <script type="text/javascript" src="appForOrder.js"></script>
 </body>
 <footer>

@@ -1,43 +1,24 @@
 <?php
-include_once('dbh.inc.php');
-$doc = new DOMDocument();
-$doc->validateOnParse = true;
-@$doc->loadHTML(file_get_contents('cart.php'));
-$rawTableNum = $doc->getElementById('tableNum');
-$tableNum = $rawTableNum->textContent;
 
-// $tableNum = "A1";
-$sql = "SELECT dishID, dishName, quantity, price, comments FROM orderDetails WHERE tableNumber = ?;";
-$stmt = mysqli_stmt_init($conn);
-if (!mysqli_stmt_prepare($stmt, $sql)) {
-    header("location: cart.php?error=stmtfailed");
-    exit();
-}
+if(isset($_POST["dishes"])){
 
-mysqli_stmt_bind_param($stmt, "s", $tableNum);
-mysqli_stmt_execute($stmt);
+    $names = $_POST['dishes'];
 
-$results = mysqli_stmt_get_result($stmt);
+    include('dbh.inc.php');
+    include('functions.inc.php');
 
-mysqli_stmt_close($stmt);
+    createOrderEntry($conn, $names);
 
-if (isset($_POST['submit'])) {
+    echo "<script>
+        alert('订单已上传，请耐心等待用餐');
+        window.location.href='../A1.php?error=none';
+        </script>";
 
-    $dishName = $_POST['orderDishName'];
-    $dishToppings = $_POST['orderDishToppings'];
-    $dishPrice = $_POST['orderDishPrice'];
-    $dishQuantity = $_POST['orderDishQuantity'];
-
-    require_once 'dbh.inc.php';
-    require_once 'functions.inc.php';
-
-    if (emptyInputLogin($username, $pwd) !== false) {
-        header('location: ../login.php?error=emptyinput');
-        exit();
-    }
-
-    updateOrderDetails($conn, $dishName, $dishToppings, $dishPrice, $dishQuantity);
 } else {
-    header("location: ../cart.php");
-    exit();
+    echo "<script>
+        alert('出错了，请联系前台');
+        window.location.href='../A1.php?error=noDish';
+        </script>";
 }
+
+?>

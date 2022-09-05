@@ -14,61 +14,22 @@
         <a id="tableNum">A1</a>
         <a class='shoppingCartIcon' href="#"><i class="fa fa-shopping-cart"></i></a>
     </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mgalante/jquery.redirect@master/jquery.redirect.js"></script>
+
 </head>
 
 <body>
     <div id="cart">
-        <?php
-        include_once('includes/dbh.inc.php');
-        $doc = new DOMDocument();
-        $doc->validateOnParse = true;
-        @$doc->loadHTML(file_get_contents('cart.php'));
-        $rawTableNum = $doc->getElementById('tableNum');
-        $tableNum = $rawTableNum->textContent;
-        
-        // $tableNum = "A1";
-        $sql = "SELECT dishID, dishName, quantity, price, comments FROM orderDetails WHERE tableNumber = ?;";
-        $stmt = mysqli_stmt_init($conn);
-        if (!mysqli_stmt_prepare($stmt, $sql)) {
-            header("location: cart.php?error=stmtfailed");
-            exit();
-        }
-        
-        mysqli_stmt_bind_param($stmt, "s", $tableNum);
-        mysqli_stmt_execute($stmt);
-        
-        $results = mysqli_stmt_get_result($stmt);
-        
-        mysqli_stmt_close($stmt);
-        echo "<form action=\" includes/cart.inc.php \" method=\"POST\">";
-        if (mysqli_num_rows($results) > 0) {
-            echo "<div class=\"cartWrapper\">";
-            while ($row = mysqli_fetch_array($results)) {
-                echo "<div class=\"orderDish\">";
-                echo "<input type=\"text\" name=\"orderDishName\" value=$row[1] class=\"orderDishName inputFormat\" readonly>";
-                echo "<input type=\"text\" name=\"orderDishToppings\" value=$row[4] class=\"orderDishToppings inputFormat\" readonly>";
-                echo "<input type=\"text\" name=\"orderDishPrice\" value=$row[3] class=\"orderDishPrice inputFormat\" readonly>";
-                // echo "<div class=\"orderDishPrice\">";
-                // echo $row[3];
-                // echo "</div>";
-                echo "<button class=\"orderDishMinus[]\"> - </button>";
-                echo "<input type=\"text\" name=\"orderDishQuantity\ value=$row[2] class=\"orderDishQuantity inputFormat\" readonly>";
-                echo "<button class=\"orderDishPlus[]\"> + </button>";
-                echo "</div>";
-            }
-            echo "</div>";
-        }
-        echo "<button type=\"submit\" name = \"submit\" class=\"addToCart\">";
-        echo "<p class=\"addToCartText\">更新购物车</p>";
-        echo "<p id=\"addToCartPrice\">$20.99</p>";
-        echo "</button>";
-        echo "</form>";
-        exit();
-        ?>
     </div>
+    <button type = "post" name="submitOrder" id="submitOrder" class="addToCart">
+        <p class="addToCartText">下单</p>
+        <p id="addToCartPrice">$0</p>
+    </button>
+    <script src="appForCart.js"></script>
 </body>
 
 <footer>
 </footer>
-<script src="appForOrder.js"></script>
+
 </html>

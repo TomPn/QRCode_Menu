@@ -1,4 +1,5 @@
 // Ch/ENG translation 
+
 var language="CH";
 var dictionary = { 
     ch:{ "dishA1":'香辣土豆粉',
@@ -229,6 +230,11 @@ var dictionary = {
     const isTextSelected = window.getSelection().toString();
     if (!isTextSelected) { window.open('order.php');
     } 
-    
 }
 
+var items = JSON.parse(localStorage.getItem('itemList'));
+var orderTotalPrice = 0;
+items.forEach(item => {
+    orderTotalPrice += item.totalPrice;
+})
+document.getElementById('addToCartPrice').innerHTML = '$'.concat(orderTotalPrice);

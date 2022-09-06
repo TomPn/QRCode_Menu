@@ -1,23 +1,22 @@
 
+//var tableList = ["A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8", "A9", "A10", "A11", "A12", 
+                // "C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8", "C9", "C10", "C11", "C12"];
 
-var tableList = ["A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8", "A9", "A10", "A11", "A12", 
-                 "C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8", "C9", "C10", "C11", "C12"];
 
+orders.forEach(createOrder);
 
-tableList.forEach(idk);
-var test=0;
-
-function idk(tableID){
+function createOrder(orderID){
   if(document.referrer.includes("adminPageDetail")){
-    activeItem = JSON.parse(sessionStorage.getItem("tableData"+tableID));
+    activeItem = JSON.parse(localStorage.getItem("orderData"+orderID));
   } else{
-    activeItem = data.filter(item => item.tableID.indexOf(tableID) > -1);
+    activeItem = data.filter(item => item.orderID.indexOf(orderID) > -1);
   }
   if(activeItem != null){
     if(activeItem.length > 0){
-
       
-      sessionStorage.setItem('tableData'+tableID,JSON.stringify(activeItem));
+      console.log(activeItem);
+      
+      localStorage.setItem('orderData'+orderID,JSON.stringify(activeItem));
 
       var tableID = activeItem[0].tableID;
       var orderPrice = activeItem[0].orderPrice;
@@ -26,32 +25,32 @@ function idk(tableID){
 
       $('<div/>',{
         class: 'activeItem',
-        id:'activeItem-'+tableID,
+        id:'activeItem-'+orderID,
         style:(Number(activeItem[0].orderStatus) == 0)? "background-color:rgb(255, 254, 196);":"background-color:#daeb9e;"
       }).appendTo('#admin');
 
-      $('#activeItem-'+tableID).on('click',function(){
-        sessionStorage.setItem("tableID",tableID);
+      $('#activeItem-'+orderID).on('click',function(){
+        localStorage.setItem("orderID",orderID);
         window.location.href = 'adminPageDetail.php';
       })
       
       $('<div/>',{
         class: 'adminText',
-        id:'adminText-'+tableID
-      }).appendTo('#activeItem-'+tableID);
+        id:'adminText-'+orderID
+      }).appendTo('#activeItem-'+orderID);
 
       
       $('<p/>',{
           text: '桌号',
           class: 'tableID',
-          id:'tableID-'+tableID
-      }).appendTo('#adminText-'+tableID);
+          id:'tableID-'+orderID
+      }).appendTo('#adminText-'+orderID);
 
 
       $('<span/>',{
         text:tableID,
         style:"font-weight:bold;font-size:large;"
-      }).appendTo('#tableID-'+tableID);
+      }).appendTo('#tableID-'+orderID);
 
 
       var beforeTax = parseFloat(orderPrice).toFixed(2);
@@ -60,39 +59,39 @@ function idk(tableID){
       $('<p/>',{
           text: "$"+beforeTax+' + $'+tax+' = ',
           class: 'orderPrice',
-          id:'orderPrice-'+tableID
-      }).appendTo('#adminText-'+tableID);
+          id:'orderPrice-'+orderID
+      }).appendTo('#adminText-'+orderID);
 
       $('<span/>',{
         text:'$'+afterTax,
         style:"font-weight:bold;font-size:large;"
-      }).appendTo('#orderPrice-'+tableID);
+      }).appendTo('#orderPrice-'+orderID);
 
       $('<div/>',{
         class: 'adminStatus',
-        id:'adminStatus-'+tableID,
+        id:'adminStatus-'+orderID,
         style:(Number(activeItem[0].orderStatus) == 0)? "background-color:rgb(255, 254, 196);":"background-color:#daeb9e;"
-      }).appendTo('#activeItem-'+tableID);
+      }).appendTo('#activeItem-'+orderID);
 
 
       $('<div/>',{
         text:(Number(orderStatus) == 0)? '未下单':'已下单',
         class: 'orderStatus',
-        id:'orderStatus-'+tableID
-      }).appendTo('#adminStatus-'+tableID);
+        id:'orderStatus-'+orderID
+      }).appendTo('#adminStatus-'+orderID);
 
       if(Number(orderStatus) == 1){
         $('<div/>',{
-          text:'已付款',
+          text:'未付款',
           class:'updatePaidStatus',
-          id:'updatePaidStatus-'+tableID
-        }).appendTo('#adminStatus-'+tableID);
+          id:'updatePaidStatus-'+orderID
+        }).appendTo('#adminStatus-'+orderID);
 
-        $('#activeItem-'+tableID).unbind();
+        $('#activeItem-'+orderID).unbind();
 
-        $('#updatePaidStatus-'+tableID).on('click',function(){
+        $('#updatePaidStatus-'+orderID).on('click',function(){
           $(this).parent().parent().remove();
-          $.redirect('adminPage.php', {status: 2,tableID:tableID});
+          $.redirect('adminPage.php', {status: 2,orderID:orderID});
           
         });
       }

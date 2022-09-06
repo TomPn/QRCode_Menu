@@ -1,5 +1,4 @@
 var items = JSON.parse(localStorage.getItem('itemList'));
-console.log(items);
 var orderTotalPrice = 0;
 var tableNum = document.getElementById('tableNum');
 
@@ -20,11 +19,13 @@ items.forEach(item => {
     thedishName.innerHTML = item.name;
     wrapper.appendChild(thedishName);
 
-    // div for toppings
+    // div for notes
     var toppings = document.createElement('div');
     toppings.setAttribute('class', 'toppings');
     toppings.innerHTML = item.notes;
     wrapper.appendChild(toppings);
+
+
 
     // div for price
     var thedishPrice = document.createElement('div');

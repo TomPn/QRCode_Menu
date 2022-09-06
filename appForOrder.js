@@ -1,4 +1,4 @@
-var tableID = JSON.parse(localStorage.getItem("tableID"));
+var tableID = localStorage.getItem("enteredTableID");
 var dishName = JSON.parse(localStorage.getItem("dishName"));
 var dishPrice = JSON.parse(localStorage.getItem("dishPrice"));
 var price = parseFloat(dishPrice.substring(1));

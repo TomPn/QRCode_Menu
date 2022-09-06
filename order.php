@@ -16,8 +16,9 @@
 </head>
 
 <body>
-    <div class="dishToOrder" id="dishToOrderName"> </div>
+
     <div class="allToppings">
+        <div class="dishToOrder" id="dishToOrderName"></div>
         <div class="addMeat">
             <h3 class="toppingsTitle">加肉</h3>
             <div class="topping">

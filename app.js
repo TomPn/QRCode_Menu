@@ -230,7 +230,7 @@ if(tableID == null){
         text:'请输入您的桌号'
     }).appendTo('#askForTableIDForm');
 
-    $("label").after("<br />");
+    $("label").after("<br/>");
 
     $("<input type=' text' id='enteredTableID'><br>").appendTo("#askForTableIDForm");
 

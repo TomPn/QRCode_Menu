@@ -237,4 +237,5 @@ var orderTotalPrice = 0;
 items.forEach(item => {
     orderTotalPrice += item.totalPrice;
 })
+orderTotalPrice = Number((orderTotalPrice).toFixed(2));
 document.getElementById('addToCartPrice').innerHTML = '$'.concat(orderTotalPrice);

@@ -195,26 +195,7 @@ var dictionary = {
         "dishK1":"Soup",
         "dishK2":"Change to Bone Soup" }
      };
- /* 
- document.getElementById('language').onclick = function() { 
-    if(language == 'CH'){ 
-        language = 'ENG';
- } else{ language = 'CH';
- } 
- var toBeTranslate = Object.keys(dictionary);
- if(language == 'CH'){ 
-    for(var i = 0; i < toBeTranslate.length; ++i){ 
-        document.getElementById(toBeTranslate[i]).innerText=dictionary.ch[toBeTranslate[i]];
-    } 
-}else{ 
-    for(var i = 0;i < toBeTranslate.length;++i){
-        document.getElementById(toBeTranslate[i]).innerText=dictionary.eng[toBeTranslate[i]];
- } 
-} 
-};
- */ 
 
-// Clickable dishes 
  var dishes = document.getElementsByClassName("dish");
  for(var i = 0; i < dishes.length; ++i){ 
     var dish = dishes[i] //console.log(dishName);
@@ -225,15 +206,59 @@ var dictionary = {
     var dish = event.currentTarget;
     var dishName = dish.querySelectorAll(".dishName")[0].innerHTML;
     var dishPrice = dish.querySelectorAll(".dishPrice")[0].innerHTML;
-    sessionStorage.setItem('dishName',JSON.stringify(dishName));
-    sessionStorage.setItem('dishPrice',JSON.stringify(dishPrice));
+    localStorage.setItem('dishName',JSON.stringify(dishName));
+    localStorage.setItem('dishPrice',JSON.stringify(dishPrice));
     const isTextSelected = window.getSelection().toString();
     if (!isTextSelected) { window.open('order.php');
     } 
 }
 
+//$('#tableID').html() =='桌号'
+console.log(localStorage.enteredTableID);
+var tableID = localStorage.enteredTableID;
+if(tableID == null){
+    $('<div/>',{
+        class:"askForTableID"
+    }).appendTo('body');
+
+    $('<form/>',{
+        id:'askForTableIDForm'
+    }).appendTo('.askForTableID');
+
+    $('<label/>',{
+        for:'enteredTableID',
+        text:'请输入您的桌号'
+    }).appendTo('#askForTableIDForm');
+
+    $("label").after("<br />");
+
+    $("<input type=' text' id='enteredTableID'><br>").appendTo("#askForTableIDForm");
+
+    $('<button/>',{
+        type:'button',
+        id:'enteredTableIDSubmit',
+        text:'确定'
+    }).appendTo('#askForTableIDForm');
+
+    $('#enteredTableIDSubmit').on('click',function(){
+        $('.askForTableID').hide();
+        var tableID = $('#enteredTableID').val();
+        localStorage.setItem('enteredTableID',tableID);
+        $('#tableID').html(tableID);
+    });
+} else{
+    $('title').html(tableID);
+    $('#tableID').html(tableID);
+}
+
+
+
 var items = JSON.parse(localStorage.getItem('itemList'));
 var orderTotalPrice = 0;
-items.forEach(item => orderTotalPrice += item.totalPrice);
+if(items != null){
+    items.forEach(item => orderTotalPrice += item.totalPrice);
+}
 orderTotalPrice = Number((orderTotalPrice).toFixed(2));
 document.getElementById('addToCartPrice').innerHTML = '$'.concat(orderTotalPrice);
+
+

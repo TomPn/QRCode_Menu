@@ -10,7 +10,7 @@
     <title>A1's Menu</title>
     <div class="header__navbar">
         <img class="logo" src="logo.png">
-        <a id="tableNum">A1</a>
+        <a id="tableID">桌号</a>
         <a class='shoppingCartIcon' href="cart.php" target=”_blank”><i class="fa fa-shopping-cart fa-lg"></i></a>
     </div>
 </head>
@@ -602,19 +602,29 @@
         <div class="bottom"></div>
     </div>
 
-    <div class="askForTableID">
 
-    </div>
 
-    <button onclick="location.href = 'cart.php';" name="submitOrder" id="submitOrder" class="addToCart">
+
+
+
+
+
+
+    <button onclick=" location.href='cart.php' ;" name="submitOrder" id="submitOrder" class="addToCart">
         <!-- <div class="viewCartBtn"></div> <i class="viewCartIcon fa fa-basket-shopping fa-xl"></i> -->
         <p class="addToCartText">购物车</p>
         <p id="addToCartPrice">$0</p>
     </button>
     <div class="bottom"></div>
+
+
+    <script src='https://code.jquery.com/jquery-3.6.1.min.js'></script>
+    <script type="text/javascript" src="app.js"></script>
+
 </body>
 <footer>
 </footer>
-<script type="text/javascript" src="app.js"></script>
+
+
 
 </html>

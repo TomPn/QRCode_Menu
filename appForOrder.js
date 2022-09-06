@@ -1,20 +1,24 @@
-var dishName = JSON.parse(sessionStorage.getItem("dishName"));
-var dishPrice = JSON.parse(sessionStorage.getItem("dishPrice"));
+var tableID = JSON.parse(localStorage.getItem("tableID"));
+var dishName = JSON.parse(localStorage.getItem("dishName"));
+var dishPrice = JSON.parse(localStorage.getItem("dishPrice"));
 var price = parseFloat(dishPrice.substring(1));
 
-document.getElementById("dishToOrderName").innerText = dishName;
-document.getElementById('addToCartPrice').innerHTML = "$".concat(price); 
+$('#tableID').html(tableID);
+$('title').html(tableID);
+$("#dishToOrderName").html(dishName);
+$('#addToCartPrice').html("$"+price); 
 
-var checkboxs = document.querySelectorAll('input[type=checkbox]');
-for(var i = 0; i < checkboxs.length; ++i){ 
-    var checkbox = checkboxs[i];
-    checkbox.addEventListener("change",changed);
-} 
+var checkboxs = $('input[type=checkbox]');
+checkboxs.each(function(){
+    $(this).on('click',changed);
+})
 
-var notes = "";
+    
 
-var addToCart = document.querySelector('.addToCart');
-addToCart.addEventListener("click",addToCartClicked);
+var notes = "加";
+
+$('.addToCart').on("click",addToCartClicked);
+
 
 
 function addToCartClicked(){
@@ -24,7 +28,8 @@ function addToCartClicked(){
         const items =[];
         localStorage.setItem('itemList',JSON.stringify(items));
     }
-    const item = {"name": dishName, "price": price, "quantity": 1, "notes": notes, "totalPrice": price};
+    var addNotes = "；特殊备注："+$('#additionalNotes').val();
+    const item = {"name": dishName, "price": price, "quantity": 1, "notes": notes.slice(0,-2)+addNotes, "totalPrice": price};
     // item[0] = {dishName};
     // item[1] = price;
     // item[2] = 1;
@@ -56,8 +61,7 @@ function changed(){
         price = price - toppingPrice;
     } 
     price = Number((price).toFixed(2));
-    document.getElementById('addToCartPrice').innerHTML = "$".concat(price);
-    console.log(notes);
     console.log(price);
+    document.getElementById('addToCartPrice').innerHTML = "$"+price;
     document.cookie="currentPrice=$".concat(JSON.stringify(price));
 }

@@ -17,22 +17,14 @@ html {
     position: sticky;
 }
 
-@media screen and (max-width: 100%) {
-    .header__navbar {
-        float: none;
-        display: block;
-        text-align: center;
-    }
-}
 
 .header__navbar a {
-    float: left;
+    /* float: left; */
     text-align: center;
     font-size: 15px;
     padding-left: 10%;
     padding-right: 10%;
 }
-
 
 .dish__navbar {
     height: 40px;
@@ -77,9 +69,8 @@ html {
     display: flex;
 }
 
-.language {
-    text-decoration: none;
-    color: white;
+#tableID{
+    font-size: large;
 }
 
 
@@ -114,6 +105,7 @@ html {
     margin-right: auto;
     cursor: pointer;
 }
+
 
 .login {
     margin-top: 10%;
@@ -203,6 +195,10 @@ html {
     margin-left: 85%;
 }
 
+input[type=checkbox] {
+    transform: scale(1.5);
+}
+
 .toppingLine {
     width: 100%;
     height: 1rem;
@@ -234,7 +230,7 @@ html {
 }
 
 .bottom {
-    margin-top: 5rem;
+    margin-top: 6rem;
 }
 
 .addToCart {
@@ -270,8 +266,8 @@ html {
 
 /* styling for the shopping cart */
 .orderDish {
-    height: 5rem;
-    background:rgb(200, 197, 197);
+    height: max-content;
+    background:rgb(255, 254, 196);
     margin-bottom: 1rem;
     width: 80%;
     justify-items: center;
@@ -279,6 +275,10 @@ html {
     margin-left: auto;
     margin-right: auto;
     position: relative;
+    box-sizing: border-box;
+    border-radius: 1rem;
+    padding:3%;
+    line-height:180%;
 }
 
 input[type=text] {
@@ -297,30 +297,32 @@ input[type=text] {
     position: absolute;
     display: inline-block;
     right: 3.1rem;
-    top: 3rem;
+    top: 4.8rem;
 }
 
 .orderDishPlus {
     position: absolute;
     display: inline-block;
     right: 1.5rem;
-    top: 3rem;
+    top: 5rem;
     height: 20px;
     width: 20px;
     border-radius: 100%;
     line-height: 15px;
+    border: 1.3px solid black;
 }
 
 .orderDishMinus {
     position: absolute;
     display: inline-block;
     right: 4rem;
-    top: 3rem;
+    top: 5rem;
     height: 20px;
     width: 20px;
     border-radius: 100%;
     line-height: 15px;
     text-align: center;
+    border: 1.3px solid black;
 }
 
 /* width */
@@ -463,4 +465,35 @@ background: #555;
     width: 100%;
     padding: 8%;
     text-align: center;
+}
+
+.askForTableID{
+    width:40%;
+    height:max-content;
+    padding: 1rem;;
+    position:fixed;
+    top:40%;
+    left:30%;
+    background-color: #fff;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 1rem;
+    border:1.5px solid black;
+    line-height: 200%;
+}
+
+.enteredTableID{
+    background-color: #e5db81;
+    width:100%;
+}
+
+#enteredTableIDSubmit{
+    padding: .3rem;
+
+}
+
+#additionalNotes{
+    margin-bottom: 2rem;
+    width: 100%;
+    height:2rem;
 }

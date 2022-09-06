@@ -10,7 +10,7 @@
     <title>Order Page</title>
     <div class="header__navbar">
         <img class="logo" src="logo.png">
-        <a id="tableNum">A1</a>
+        <a id="tableID">桌号</a>
         <a class='shoppingCartIcon' href="cart.php" target=”_blank”><i class="fa fa-shopping-cart fa-lg"></i></a>
     </div>
 </head>
@@ -488,36 +488,21 @@
                 </div>
                 <div class="toppingLine"></div>
             </div>
+
         </div>
-        <div class="AdditionalNotes">
+        <div class="addNotes">
             <h3 class="toppingsTitle">备注</h3>
             <div class="topping">
-                <div class="toppingText">
-                    <p class="toppingName">纯瘦</p>
-                    <p class="toppingPrice">$0.00</p>
-                </div>
-                <div class="toppingCheckbox">
-                    <label> <input type="checkbox" name="toppings[]" value="+纯瘦"> <span class="checkmark"></span> </label>
-                </div>
-                <div class="toppingLine"></div>
+                <input type=' text' id='additionalNotes'><br>
             </div>
-            <div class="topping">
-                <div class="toppingText">
-                    <p class="toppingName">纯肥</p>
-                    <p class="toppingPrice">$0.00</p>
-                </div>
-                <div class="toppingCheckbox">
-                    <label> <input type="checkbox" name="toppings[]" value="+纯肥"> <span class="checkmark"></span> </label>
-                </div>
-                <div class="toppingLine"></div>
-            </div>
+            <div class="bottom"></div>
         </div>
-        <div class="bottom"></div>
     </div>
     <button class="addToCart" onclick="location.href = 'A1.php'">
         <p class=" addToCartText">加入购物车</p>
         <p id="addToCartPrice">$20.99</p>
     </button>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="appForOrder.js"></script>
 </body>
 <footer>

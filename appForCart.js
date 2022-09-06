@@ -3,6 +3,11 @@ console.log(items);
 var orderTotalPrice = 0;
 var tableNum = document.getElementById('tableNum');
 
+$('title').html(localStorage.enteredTableID);
+$('#tableID').html(localStorage.enteredTableID);
+
+$('.logo').on('click',function(){window.location.href = 'A1.php';});
+
 items.forEach(item => {
     // create a wrapper for each dish addded
     var wrapper = document.createElement('div');
@@ -53,6 +58,10 @@ items.forEach(item => {
     // accumulation of the total price for the order
     orderTotalPrice += item.totalPrice;
 })
+
+$('<div/>',{
+    class:"bottom"
+}).appendTo('#cart');
 
 orderTotalPrice = Number((orderTotalPrice).toFixed(2));
 document.getElementById('addToCartPrice').innerHTML = '$'.concat(orderTotalPrice);

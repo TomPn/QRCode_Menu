@@ -22,6 +22,17 @@
         }
     }
 
+    $orders = array();
+    $sql = "SELECT DISTINCT(orderID) FROM menuProject.cartItems WHERE orderStatus = 0 OR orderStatus = 1";
+    $result = mysqli_query($conn, $sql);
+    if ($result->num_rows > 0) {
+        foreach ($result as $order) {
+            array_push($orders, $order['orderID']);
+        }
+    }
+
+    print_r($orders);
+
 
     ?>
 
@@ -33,6 +44,7 @@
     <script src="https://cdn.jsdelivr.net/gh/mgalante/jquery.redirect@master/jquery.redirect.js"></script>
     <script>
         var data = jQuery.parseJSON('<?php echo json_encode($data) ?>');
+        var orders = jQuery.parseJSON('<?php echo json_encode($orders) ?>');
         if (data.length == 0) {
             $('#adminH1').html('暂无订单');
         }
@@ -45,11 +57,11 @@
 
     <?php
     if (isset($_SERVER['HTTP_REFERER'])) {
-        if ((isset($_POST['status'])) and (isset($_POST['tableID']))) {
-            $sql = $conn->prepare("UPDATE menuProject.cartItems SET orderStatus = ? WHERE tableID = ?");
-            $sql->bind_param("ss", $_POST['status'], $_POST['tableID']);
+        if ((isset($_POST['status'])) and (isset($_POST['orderID']))) {
+            $sql = $conn->prepare("UPDATE menuProject.cartItems SET orderStatus = ? WHERE orderID = ?");
+            $sql->bind_param("ss", $_POST['status'], $_POST['orderID']);
             $sql->execute();
-            header("refresh: 0.5");
+            header("refresh: 1");
         }
     }
 

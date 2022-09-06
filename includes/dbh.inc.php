@@ -3,7 +3,7 @@
 $serverName = "127.0.0.1";
 $dbUsename = "root";
 $dbPassword = "";
-$dbName = "online_ordering";
+$dbName = "menuProject";
 
 $conn = mysqli_connect($serverName, $dbUsename, $dbPassword, $dbName);
 

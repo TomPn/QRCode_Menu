@@ -11,6 +11,8 @@
 
 <body>
     <?php
+
+    header("refresh: 1");
     include 'dbConnect.php';
     $sql = "SELECT * FROM menuProject.cartItems WHERE orderStatus = 0 OR orderStatus = 1";
     $result = mysqli_query($conn, $sql);
@@ -30,8 +32,6 @@
             array_push($orders, $order['orderID']);
         }
     }
-
-    print_r($orders);
 
 
     ?>
@@ -61,7 +61,6 @@
             $sql = $conn->prepare("UPDATE menuProject.cartItems SET orderStatus = ? WHERE orderID = ?");
             $sql->bind_param("ss", $_POST['status'], $_POST['orderID']);
             $sql->execute();
-            header("refresh: 1");
         }
     }
 

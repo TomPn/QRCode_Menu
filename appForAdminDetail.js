@@ -55,35 +55,35 @@ function idk(dishItem){
 
 $('<div/>',{
     class:"adminOrderBtn",
-    id:"adminOrderBtn-"+data[0].ID
+    id:"adminOrderBtn-"+data[0].orderID
 }).appendTo('#adminDetail');
 
 $("<p/>",{
     text:"$"+data[0].orderPrice,
     class:'adminOrderBtnPrice',
-    id:"adminOrderBtnPrice-"+ID
-}).appendTo('#adminOrderBtn-'+ID);
+    id:"adminOrderBtnPrice-"+orderID
+}).appendTo('#adminOrderBtn-'+orderID);
 
 $("<p/>",{
     text:(Number(data[0].orderStatus) == 0)? '未下单':'已下单',
     class:'adminOrderBtnSubmitOrder',
-    id:"adminOrderBtnSubmitOrder-"+ID,
+    id:"adminOrderBtnSubmitOrder-"+orderID,
     style:(Number(data[0].orderStatus) == 0)? "background-color:rgb(255, 254, 196);":"background-color:#daeb9e;"
-}).appendTo('#adminOrderBtn-'+ID);
+}).appendTo('#adminOrderBtn-'+orderID);
 
 
 
-$("#adminOrderBtn-"+ID).on('click',function(){
-    if($("#adminOrderBtnSubmitOrder-"+ID).html()=='未下单'){
-        $("#adminOrderBtnSubmitOrder-"+ID).html('已下单');
-        $("#adminOrderBtnSubmitOrder-"+ID).css('background-color','#daeb9e');
+$("#adminOrderBtn-"+orderID).on('click',function(){
+    if($("#adminOrderBtnSubmitOrder-"+orderID).html()=='未下单'){
+        $("#adminOrderBtnSubmitOrder-"+orderID).html('已下单');
+        $("#adminOrderBtnSubmitOrder-"+orderID).css('background-color','#daeb9e');
         data.forEach(dishItem => dishItem.orderStatus=1);
     } else{
-        $("#adminOrderBtnSubmitOrder-"+ID).html('未下单');
-        $("#adminOrderBtnSubmitOrder-"+ID).css('background-color','rgb(255, 254, 196)');
+        $("#adminOrderBtnSubmitOrder-"+orderID).html('未下单');
+        $("#adminOrderBtnSubmitOrder-"+orderID).css('background-color','rgb(255, 254, 196)');
         data.forEach(dishItem => dishItem.orderStatus=0);
     }
-    localStorage.setItem('orderData'+ID,JSON.stringify(data));
+    localStorage.setItem('orderData'+orderID,JSON.stringify(data));
     $.redirect('adminPage.php', {status: data[0].orderStatus,orderID:orderID});
     
 })

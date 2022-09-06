@@ -3,11 +3,11 @@
 if(isset($_POST["dishes"])){
 
     $names = $_POST['dishes'];
-
+    $table = $_POST['tableID'];
     include('dbh.inc.php');
     include('functions.inc.php');
 
-    createOrderEntry($conn, $names);
+    createOrderEntry($conn, $names, $table);
 
     echo "<script>
         alert('订单已上传，请耐心等待用餐');

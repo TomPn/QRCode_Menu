@@ -147,12 +147,8 @@ function getOrderID($conn, $tableNum) {
     return $orderID;
 }
 
-function createOrderEntry($conn, $names) {
-    $doc = new DOMDocument();
-    $doc->validateOnParse = true;
-    @$doc->loadHTML(file_get_contents('../order.php'));
-    $rawTableNum = $doc->getElementById('tableNum');
-    $tableNum = $rawTableNum->textContent;
+function createOrderEntry($conn, $names, $table) {
+    $tableNum = $table;
     $orderID = getOrderID($conn, $tableNum);
     $orderDate = date("Y/m/d");
     $orderPrice = 0;

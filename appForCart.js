@@ -1,10 +1,9 @@
 var items = JSON.parse(localStorage.getItem('itemList'));
 var orderTotalPrice = 0;
-var tableNum = document.getElementById('tableNum');
+
 
 $('title').html(localStorage.enteredTableID);
 $('#tableID').html(localStorage.enteredTableID);
-
 $('.logo').on('click',function(){window.location.href = 'A1.php';});
 
 items.forEach(item => {
@@ -24,8 +23,6 @@ items.forEach(item => {
     toppings.setAttribute('class', 'toppings');
     toppings.innerHTML = item.notes;
     wrapper.appendChild(toppings);
-
-
 
     // div for price
     var thedishPrice = document.createElement('div');
@@ -111,5 +108,5 @@ var OrderSubmit = document.getElementById('submitOrder');
 
 OrderSubmit.addEventListener("click", function() {
     var items = JSON.parse(localStorage.getItem('itemList'));
-    $.redirect('includes/cart.inc.php', {dishes: items});
+    $.redirect('includes/cart.inc.php', {dishes: items, tableID: localStorage.enteredTableID});
 });

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,13 +8,14 @@
     <title>Login</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <nav>
         <div class="header__navbar">
             <a class='language' href="#">Eng/中文</a>
         </div>
     </nav>
-    
+
     <div class="logo">
         <h1>白家老汤</h1>
     </div>
@@ -30,8 +32,9 @@
 
     <div class="identification">
         <button onclick="location.href='login.php'" id="Admin" class="button">Admin</button>
-        <button onclick="location.href='guestPage.php'" id="Guest" class="button">Guest</button>
+        <button onclick="location.href='A1.php'" id="Guest" class="button">Guest</button>
     </div>
-    
+
 </body>
+
 </html>

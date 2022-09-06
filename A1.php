@@ -9,10 +9,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
     <title>A1's Menu</title>
     <div class="header__navbar">
-        <a class="menu" href="#">logo</a>
-        <a class='language' href="#">Eng/中文</a>
+        <img class="logo" src="logo.png">
         <a id="tableNum">A1</a>
-        <a class='shoppingCartIcon' href="cart.php" target=”_blank”><i class="fa fa-shopping-cart"></i></a>
+        <a class='shoppingCartIcon' href="cart.php" target=”_blank”><i class="fa fa-shopping-cart fa-lg"></i></a>
     </div>
 </head>
 
@@ -20,29 +19,31 @@
     <!-- Top Navigation Menu -->
     <nav class="dish__navbar">
         <ul class="navbar__menu">
-            <li class="navbar__item"> 
-                <a href="#DishA" class="navbar__links" id="PotatoNoodle"> 土豆粉系列 </a> 
+            <li class="navbar__item">
+                <a href="#DishA" class="navbar__links" id="PotatoNoodle"> 土豆粉系列 </a>
             </li>
-            <li class="navbar__item"> 
-                <a href="#DishB" class="navbar__links" id="Noodle"> 面食系列 </a> </li>
-            <li class="navbar__item"> 
-                <a href="#DishC" class="navbar__links" id="RiceNoodle"> 陕西风味 </a> </li>
+            <li class="navbar__item">
+                <a href="#DishB" class="navbar__links" id="Noodle"> 面食系列 </a>
             </li>
-            <li class="navbar__item"> 
-                <a href="#DishD" class="navbar__links" id="ShanXiStyle"> 饮品 </a> 
+            <li class="navbar__item">
+                <a href="#DishC" class="navbar__links" id="RiceNoodle"> 陕西风味 </a>
             </li>
-            <li class="navbar__item"> 
-                <a href="#DishE" class="navbar__links" id="SmallDIsh"> 秘制小菜 </a> 
             </li>
-            <li class="navbar__item"> 
-                <a href="#DishF" class="navbar__links" id="Drink"> 养生渔粉系列 </a> 
+            <li class="navbar__item">
+                <a href="#DishD" class="navbar__links" id="ShanXiStyle"> 饮品 </a>
             </li>
-            <li class="navbar__item"> 
-                <a href="#DishG" class="navbar__links" id="NewProduct"> 新品 </a> 
+            <li class="navbar__item">
+                <a href="#DishE" class="navbar__links" id="SmallDIsh"> 秘制小菜 </a>
+            </li>
+            <li class="navbar__item">
+                <a href="#DishF" class="navbar__links" id="Drink"> 养生渔粉系列 </a>
+            </li>
+            <li class="navbar__item">
+                <a href="#DishN" class="navbar__links" id="NewProduct"> 新品 </a>
             </li>
         </ul>
-    </nav> 
-    
+    </nav>
+
     <!-- Menu Section -->
     <div id="Menu">
         <div class="Dish dishA" id="DishA">
@@ -601,6 +602,10 @@
         <div class="bottom"></div>
     </div>
 
+    <div class="askForTableID">
+
+    </div>
+
     <button onclick="location.href = 'cart.php';" name="submitOrder" id="submitOrder" class="addToCart">
         <!-- <div class="viewCartBtn"></div> <i class="viewCartIcon fa fa-basket-shopping fa-xl"></i> -->
         <p class="addToCartText">购物车</p>
@@ -611,4 +616,5 @@
 <footer>
 </footer>
 <script type="text/javascript" src="app.js"></script>
+
 </html>

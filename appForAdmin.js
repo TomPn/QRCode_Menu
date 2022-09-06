@@ -91,6 +91,7 @@ function createOrder(orderID){
 
         $('#updatePaidStatus-'+orderID).on('click',function(){
           $(this).parent().parent().remove();
+          localStorage.clear();
           $.redirect('adminPage.php', {status: 2,orderID:orderID});
           
         });

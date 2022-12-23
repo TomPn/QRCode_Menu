@@ -1,11 +1,11 @@
 <?php
 
 if (isset($_POST["submit"])) {
-    $username = $_POST["name"];
-    $phone = $_POST["phone"];
-    $pwd = $_POST["pwd"];
-    $pwdRepeat = $_POST["pwdrepeat"];
-    $identity = $_POST["identity"];
+    $username = htmlspecialchars($_POST["name"]);
+    $phone = htmlspecialchars($_POST["phone"]);
+    $pwd = htmlspecialchars($_POST["pwd"]);
+    $pwdRepeat = htmlspecialchars($_POST["pwdrepeat"]);
+    $identity = htmlspecialchars($_POST["identity"]);
 
     require_once 'dbh.inc.php';
     require_once 'functions.inc.php';

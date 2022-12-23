@@ -1,3 +1,8 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+
 <?php
 
 function emptyInputSignup($username,$phone,$pwd,$pwdRepeat) {
@@ -54,6 +59,7 @@ function usernameExists($conn, $username, $phone) {
     }
 
     mysqli_stmt_bind_param($stmt, "ss", $username, $phone);
+
     mysqli_stmt_execute($stmt);
 
     $resultData = mysqli_stmt_get_result($stmt);
@@ -76,9 +82,9 @@ function createUser($conn, $username, $phone, $password, $identity) {
         exit();
     }
 
-    $hasedPwd = password_hash($password, PASSWORD_DEFAULT);
+    $hashedPwd = password_hash($password, PASSWORD_DEFAULT);
 
-    mysqli_stmt_bind_param($stmt, "ssss", $username, $phone, $hasedPwd, $identity);
+    mysqli_stmt_bind_param($stmt, "ssss", $username, $phone, $hashedPwd, $identity);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
@@ -99,22 +105,23 @@ function emptyInputLogin($username,$pwd) {
 
 function loginUser($conn, $username, $pwd) {
     $nameExist = usernameExists($conn, $username, $username);
-
     if ($nameExist === false) {
-        header('location: ../login.php?error=wronglogin');
+        header('location: ../login.php?error=wrongUserName');
         exit();
     }
 
     $pwdHashed = $nameExist['usersPassword'];
     $checkPassword = password_verify($pwd, $pwdHashed);
     if ($checkPassword === false) {
-        header('location: ../login.php?error=wronglogin');
+        header('location: ../login.php?error=wrongPassword');
+        return null;
         exit();
     } 
     else if ($checkPassword === true) {
         session_start();
         $_SESSION['userid'] = $nameExist['usersId'];
         $_SESSION['username'] = $nameExist['usersName'];
+        $_SESSION['login'] = 1;
         if ($nameExist['usersIdentity'] === 'admin') {
             header("location: ../adminPage.php");
             exit();
@@ -124,8 +131,9 @@ function loginUser($conn, $username, $pwd) {
     }
 }
 
+
 function getOrderID($conn, $tableNum) {
-    $sql = "SELECT MAX(orderID) FROM cartItems WHERE tableID = '$tableNum';";
+    $sql = "SELECT MAX(orderID) FROM cartItems;";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
         header("location: ../cart.php?error=stmtfailed");

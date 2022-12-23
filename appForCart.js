@@ -1,9 +1,9 @@
-var items = JSON.parse(localStorage.getItem('itemList'));
+var items = JSON.parse(sessionStorage.getItem('itemList'));
 var orderTotalPrice = 0;
 
 
-$('title').html(localStorage.enteredTableID);
-$('#tableID').html(localStorage.enteredTableID);
+$('title').html(sessionStorage.getItem("enteredTableID"));
+$('#tableID').html(sessionStorage.getItem("enteredTableID"));
 $('.logo').on('click',function(){window.location.href = 'A1.php';});
 
 items.forEach(item => {
@@ -62,21 +62,21 @@ $('<div/>',{
 }).appendTo('#cart');
 
 orderTotalPrice = Number((orderTotalPrice).toFixed(2));
-document.getElementById('addToCartPrice').innerHTML = '$'.concat(orderTotalPrice);
+document.getElementById('submitOrderPrice').innerHTML = '$'.concat(orderTotalPrice);
 
 function deleteDish(dishName, dishPrice, dishToppings){
-    var items = JSON.parse(localStorage.getItem('itemList'));
+    var items = JSON.parse(sessionStorage.getItem('itemList'));
     items.forEach(item => {
         if (item.name == dishName && item.price == dishPrice && item.notes == dishToppings) {
             const itemToDelete = [item];
             const newItems = items.filter( originalItem => !itemToDelete.includes(originalItem));
-            localStorage.setItem('itemList',JSON.stringify(newItems));
+            sessionStorage.setItem('itemList',JSON.stringify(newItems));
         }
     });
 }
 
 function minusQuantity(dishName, dishPrice, dishToppings) {
-    var items = JSON.parse(localStorage.getItem('itemList'));
+    var items = JSON.parse(sessionStorage.getItem('itemList'));
     items.forEach(item => {
         if (item.name == dishName && item.price == dishPrice && item.notes == dishToppings) {
             item.quantity -= 1;
@@ -89,11 +89,11 @@ function minusQuantity(dishName, dishPrice, dishToppings) {
             window.location.href='cart.php';
         }
     });
-    localStorage.setItem('itemList',JSON.stringify(items));
+    sessionStorage.setItem('itemList',JSON.stringify(items));
 }
 
 function plusQuantity(dishName, dishPrice, dishToppings) {
-    var items = JSON.parse(localStorage.getItem('itemList'));
+    var items = JSON.parse(sessionStorage.getItem('itemList'));
     items.forEach(item => {
         if (item.name == dishName && item.price == dishPrice && item.notes == dishToppings) {
             item.quantity += 1;
@@ -101,12 +101,30 @@ function plusQuantity(dishName, dishPrice, dishToppings) {
             window.location.href='cart.php';
         }
     });
-    localStorage.setItem('itemList',JSON.stringify(items));
+    sessionStorage.setItem('itemList',JSON.stringify(items));
 }
 
 var OrderSubmit = document.getElementById('submitOrder');
 
-OrderSubmit.addEventListener("click", function() {
-    var items = JSON.parse(localStorage.getItem('itemList'));
-    $.redirect('includes/cart.inc.php', {dishes: items, tableID: localStorage.enteredTableID});
+
+
+if(sessionStorage.getItem('order?') != null){
+    $('#submitOrder').unbind();
+    $('.orderDishPlus').unbind();
+    $('.orderDishMinus').unbind();
+    $("#submitOrderText").html('已下单 The Order Has Been Placed');
+    $('<div/>',{
+        class:'afterOrderText',
+        text:"如需加单，请关闭页面，重新扫码点单 Please close the browser and rescan the QR code to make another order",
+        style:"margin-bottom:10%; margin-left: auto; margin-right: auto; text-align: center; z-index:1000;"
+    }).appendTo("body");
+    $("#submitOrder").css('background-color:#DCDCDC');
+} else{
+    OrderSubmit.addEventListener("click", function() {
+    var items = JSON.parse(sessionStorage.getItem('itemList'));
+    sessionStorage.setItem('order?',1);
+    $.redirect('includes/cart.inc.php', {dishes: items, tableID: sessionStorage.enteredTableID});
 });
+}
+
+

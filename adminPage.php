@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf8mb4">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
@@ -11,10 +11,16 @@
 
 <body>
     <?php
-
-    header("refresh: 1");
-    include 'dbConnect.php';
-    $sql = "SELECT * FROM menuProject.cartItems WHERE orderStatus = 0 OR orderStatus = 1";
+    session_start();
+    if(isset($_SESSION['login'])){
+        $login = $_SESSION['login'];
+    } else{
+        $login = 0;
+    }
+    
+    header("refresh: 5");
+    include '/home/vol17_2/epizy.com/epiz_32546470/htdocs/includes/dbh.inc.php';
+    $sql = "SELECT * FROM cartItems WHERE orderStatus = 0 OR orderStatus = 1";
     $result = mysqli_query($conn, $sql);
     $data = array();
 
@@ -25,10 +31,10 @@
     }
 
     $orders = array();
-    $sql = "SELECT DISTINCT(orderID) FROM menuProject.cartItems WHERE orderStatus = 0 OR orderStatus = 1";
-    $result = mysqli_query($conn, $sql);
-    if ($result->num_rows > 0) {
-        foreach ($result as $order) {
+    $sql2 = "SELECT DISTINCT(orderID) FROM cartItems WHERE orderStatus = 0 OR orderStatus = 1";
+    $result2 = mysqli_query($conn, $sql2);
+    if ($result2->num_rows > 0) {
+        foreach ($result2 as $order) {
             array_push($orders, $order['orderID']);
         }
     }
@@ -48,6 +54,7 @@
         if (data.length == 0) {
             $('#adminH1').html('暂无订单');
         }
+        var login = jQuery.parseJSON('<?php echo json_encode($login) ?>');
     </script>
     <script src='appForAdmin.js'></script>
 
@@ -58,7 +65,7 @@
     <?php
     if (isset($_SERVER['HTTP_REFERER'])) {
         if ((isset($_POST['status'])) and (isset($_POST['orderID']))) {
-            $sql = $conn->prepare("UPDATE menuProject.cartItems SET orderStatus = ? WHERE orderID = ?");
+            $sql = $conn->prepare("UPDATE cartItems SET orderStatus = ? WHERE orderID = ?");
             $sql->bind_param("ss", $_POST['status'], $_POST['orderID']);
             $sql->execute();
         }

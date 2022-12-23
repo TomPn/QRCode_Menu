@@ -10,18 +10,12 @@
 </head>
 
 <body>
-    <nav>
-        <div class="header__navbar">
-            <a class='language' href="#">Eng/中文</a>
-        </div>
-    </nav>
-
-    <div class="logo">
-        <h1>白家老汤</h1>
+    <div id="indexLogo">
+        <img src="logo.png" alt="Italian Trulli" id="logoPic">
     </div>
 
     <div class="introduction">
-        <h2 class="RestaurantName">白家老汤（滑铁卢分店）</h2>
+        <h2 class="RestaurantName">白家老汤<br>（滑铁卢分店）</h2>
         <br>
         <p class="Address">Unit 21 - 160 University Avenue West, Waterloo, ON, N2L 3E9</p>
         <br>

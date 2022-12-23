@@ -10,12 +10,14 @@
 
 <body>
     <section class="Login">
-        <h2>login</h2>
+        <h2>Admin Login</h2>
         <div class="Login.form">
-            <form action="/includes/login.inc.php" method="post">
+            <form action="/includes/login.inc.php" method="post" class="loginForm">
                 <input type="text" name="name" placeholder="Username">
                 <input type="password" name="pwd" placeholder="Password">
+                <input type="text" name="identity" placeholder="Identity" id="identity">
                 <button type="submit" name="submit">Submit</button>
+                <!-- onclick="location.href = '/home/vol17_2/epizy.com/epiz_32546470/htdocs/includes/login.inc.php'" -->
             </form>
         </div>
         <?php  

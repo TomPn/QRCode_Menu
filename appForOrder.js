@@ -1,6 +1,6 @@
-var tableID = localStorage.getItem("enteredTableID");
-var dishName = JSON.parse(localStorage.getItem("dishName"));
-var dishPrice = JSON.parse(localStorage.getItem("dishPrice"));
+var tableID = sessionStorage.getItem("enteredTableID");
+var dishName = JSON.parse(sessionStorage.getItem("dishName"));
+var dishPrice = JSON.parse(sessionStorage.getItem("dishPrice"));
 var price = parseFloat(dishPrice.substring(1));
 
 $('#tableID').html(tableID);
@@ -24,11 +24,14 @@ $('.addToCart').on("click",addToCartClicked);
 function addToCartClicked(){
     const isTextSelected = window.getSelection().toString();
     
-    if (localStorage.getItem('itemList') == null) {
+    if (sessionStorage.getItem('itemList') == null) {
         const items =[];
-        localStorage.setItem('itemList',JSON.stringify(items));
+        sessionStorage.setItem('itemList',JSON.stringify(items));
     }
     var addNotes = "；特殊备注："+$('#additionalNotes').val();
+    if(addNotes = "；特殊备注："){
+        addNotes = "";
+    }
     const item = {"name": dishName, "price": price, "quantity": 1, "notes": notes.slice(0,-2)+addNotes, "totalPrice": price};
     // item[0] = {dishName};
     // item[1] = price;
@@ -36,9 +39,9 @@ function addToCartClicked(){
     // item[3] = notes;
     // item[4] = item[1] * item[2];
     
-    var items = JSON.parse(localStorage.getItem('itemList'));
+    var items = JSON.parse(sessionStorage.getItem('itemList'));
     items.push(item);
-    localStorage.setItem('itemList',JSON.stringify(items));
+    sessionStorage.setItem('itemList',JSON.stringify(items));
     console.log(items);
     if (!isTextSelected) { 
         window.location.href='A1.php';
